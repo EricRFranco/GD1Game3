@@ -8,8 +8,6 @@ public class Cannon : MonoBehaviour {
     private GameObject projectilePrefab;
     [SerializeField]
     private Vector3 spawnOffset;
-    [SerializeField]
-    private Vector3 impulse;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +19,6 @@ public class Cannon : MonoBehaviour {
 		if(Input.GetMouseButtonDown(0)) {
             Vector3 spawnPoint = transform.position + spawnOffset;
             GameObject projectile = (GameObject)Instantiate(projectilePrefab, spawnPoint, transform.rotation);
-            projectile.GetComponent<Rigidbody>().AddForce(impulse, ForceMode.Impulse);
         }
 	}
 }
