@@ -78,19 +78,17 @@ public class FlockingScript : MonoBehaviour {
 			if (boid != gameObject) {
 				FlockingScript other = boid.GetComponent<FlockingScript> ();
 				float strength = Mathf.Max (other.repulsionConstant / distance, maxAcceleration);
-				print (strength);
+
 				seperation += strength * (transform.position - boid.transform.position).normalized;
 				numClose++;
 			}
 		}
-
-		print (seperation);
 			
 		if (numClose > 0) {
 			seperation *= 1 / (float)numClose; 
 		}
 
-		print (seperation);
+
 
 		return seperation;
 	}
