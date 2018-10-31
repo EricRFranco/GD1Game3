@@ -8,6 +8,8 @@ public class GenerateLevel : MonoBehaviour {
 
 	public GameObject floorPrefab;
 
+	public GameObject pathfindingNPCPrefab;
+
 	public Vector3 levelCenter;
 
 	string[] levelRows;
@@ -15,6 +17,7 @@ public class GenerateLevel : MonoBehaviour {
 	LevelManagerScript levelManager;
 	// Use this for initialization
 	void Awake () {
+        
 		levelManager = GetComponent<LevelManagerScript> ();
 		levelRows = level.text.Split(new char[]{'\n'});
 		Bounds wallBounds = wallPrefab.GetComponent<MeshFilter> ().sharedMesh.bounds;
@@ -30,7 +33,7 @@ public class GenerateLevel : MonoBehaviour {
 
 		float zOffset = floorWidthInMeters / (float)(levelRows.Length - 1);
 
-		levelManager.levelLayout = new bool[levelRows.Length - 1][];
+		levelManager.levelGrid = new Tile[levelRows.Length - 1][];
 
 		Vector3 topLeftCorner = new Vector3 (levelCenter.x - (floorLengthInMeters / 2f), levelCenter.y + wallHalfHeightInMeters, levelCenter.z - (floorWidthInMeters / 2));
 
@@ -38,23 +41,34 @@ public class GenerateLevel : MonoBehaviour {
 			levelRows [i] = levelRows [i].Trim ();
 			float xOffset = floorLengthInMeters / (float)(levelRows [i].Length);
 
-			levelManager.levelLayout [i] = new bool[levelRows [i].Length];
+			levelManager.levelGrid [i] = new Tile[levelRows [i].Length];
+
 			for(int j = 0; j < levelRows[i].Length; ++j) {
 
 				Vector3 placePosition = new Vector3 (topLeftCorner.x + j * xOffset + wallLengthInMeters / 2f, 
 					                        topLeftCorner.y, topLeftCorner.z + i * zOffset + wallWidthInMeters / 2f);
 
+				Tile tile = new Tile ();
+				tile.position = placePosition;
+
 				if (levelRows [i] [j] == 'W') {
 					GameObject wall = Instantiate (wallPrefab, floor.transform);
 					wall.transform.position = placePosition;
-					levelManager.levelLayout [i] [j] = true;
+					tile.isWall = true;
 				} else {
 					
-					levelManager.levelLayout [i] [j] = false;
+					tile.isWall = false;
 				}
-					
+
+				if (levelRows [i] [j] == 'N') {
+					GameObject NPC = Instantiate (pathfindingNPCPrefab);
+					NPC.transform.position = placePosition;
+				}
+
+				levelManager.levelGrid [i] [j] = tile;
 			}
 		}
+        
 
 	}
 	
