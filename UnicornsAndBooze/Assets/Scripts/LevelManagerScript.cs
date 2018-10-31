@@ -41,7 +41,6 @@ public class LevelManagerScript : MonoBehaviour {
 	void Start () {
 		graph = new Graph ();
         UpdateGraph();
-        //print(graph.GetConnectedNodes(new Vector3(-0.5f, 0.5f, 0.5f))[0]);   
 	}
 	
 	// Update is called once per frame
@@ -76,7 +75,7 @@ public class LevelManagerScript : MonoBehaviour {
 				bool up = false;
 				bool down = false;
 				bool right = false;
-				bool left = true;
+				bool left = false;
 				if (i > 0 && !levelGrid [i - 1] [j].isWall) {
 					connectedPositions.Add (levelGrid[i - 1][j].position);
 					up = true;
