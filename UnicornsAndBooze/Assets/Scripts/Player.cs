@@ -6,6 +6,12 @@ public class Player : MonoBehaviour {
 
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private GameObject shirt;
+    [SerializeField]
+    private Transform spawnPoint;
+    [SerializeField]
+    private Vector3 spawnOffset;
     //private bool rotating = false;
 
 	// Use this for initialization
@@ -15,7 +21,6 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(transform.position);
 		if(Input.GetKey(KeyCode.W))
         {
             transform.position += (transform.forward * speed);
@@ -33,7 +38,11 @@ public class Player : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.D))
         {
             StartCoroutine(Rotate(Vector3.up, 90f));
-            
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(shirt, spawnPoint.position, Quaternion.identity);
         }
 	}
 
