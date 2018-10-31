@@ -14,6 +14,8 @@ public class Player : MonoBehaviour {
     private float angularSpeed;
 
     private Rigidbody rb;
+    private bool shirtAvailable = false;
+    private int shirtCount = 0;
     //private bool rotating = false;
 
 	// Use this for initialization
@@ -23,29 +25,53 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.W))
+        MovePlayer();
+        GainShirt();
+        if(Input.GetKeyDown(KeyCode.Space) && shirtCount > 0)
+        {
+            Instantiate(shirt, spawnPoint.position, Quaternion.identity);
+            shirtCount--;
+        }
+	}
+
+    void MovePlayer()
+    {
+        if (Input.GetKey(KeyCode.W))
         {
             rb.velocity = transform.forward * speed;
         }
-        else if(Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
             rb.velocity = transform.forward * -speed;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(0f, -angularSpeed, 0f, Space.World);  
+            transform.Rotate(0f, -angularSpeed, 0f, Space.World);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(0f, angularSpeed, 0f, Space.World);
         }
+    }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+    void GainShirt()
+    {
+        if(shirtAvailable && Input.GetKeyDown(KeyCode.E))
         {
-            Instantiate(shirt, spawnPoint.position, Quaternion.identity);
+            shirtCount++;
         }
-	}
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        shirtAvailable = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        shirtAvailable = false;
+    }
 
     //Coroutine out of date due to change in design
     /*
