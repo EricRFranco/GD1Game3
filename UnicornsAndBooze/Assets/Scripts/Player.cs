@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     private float angularSpeed;
 
     private Rigidbody rb;
+    private bool boomboxToggle = false;
     private bool shirtAvailable = false;
     private int shirtCount = 0;
     //private bool rotating = false;
@@ -65,12 +66,20 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        shirtAvailable = true;
+        if (other.gameObject.tag == "ShirtBin") 
+            shirtAvailable = true;
+
+        if (other.gameObject.tag == "Boombox")
+            boomboxToggle = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        shirtAvailable = false;
+        if(other.gameObject.tag == "ShirtBin")
+            shirtAvailable = false;
+
+        if (other.gameObject.tag == "Boombox")
+            boomboxToggle = false;
     }
 
     //Coroutine out of date due to change in design
