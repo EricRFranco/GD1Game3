@@ -6,37 +6,49 @@ public class Player : MonoBehaviour {
 
     [SerializeField]
     private float speed;
-    private bool rotating = false;
+    [SerializeField]
+    private GameObject shirt;
+    [SerializeField]
+    private Transform spawnPoint;
+    [SerializeField]
+    private float angularSpeed;
+
+    private Rigidbody rb;
+    //private bool rotating = false;
 
 	// Use this for initialization
 	void Start () {
-		
+        rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(transform.position);
 		if(Input.GetKey(KeyCode.W))
         {
-            transform.position += (transform.forward * speed);
+            rb.velocity = transform.forward * speed;
         }
         else if(Input.GetKey(KeyCode.S))
         {
-            transform.position -= (transform.forward * speed);
+            rb.velocity = transform.forward * -speed;
         }
 
-        if (Input.GetKeyDown(KeyCode.A) && !rotating)
+        if (Input.GetKey(KeyCode.A))
         {
-            StartCoroutine(Rotate(Vector3.up, -90f));
-            rotating = true;
+            transform.Rotate(0f, -angularSpeed, 0f, Space.World);  
         }
-        else if (Input.GetKeyDown(KeyCode.D) && !rotating)
+        else if (Input.GetKey(KeyCode.D))
         {
-            StartCoroutine(Rotate(Vector3.up, 90f));
-            rotating = true;
+            transform.Rotate(0f, angularSpeed, 0f, Space.World);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(shirt, spawnPoint.position, Quaternion.identity);
         }
 	}
 
+    //Coroutine out of date due to change in design
+    /*
     IEnumerator Rotate(Vector3 axis, float angle, float duration = 1.0f)
     {
         Quaternion from = transform.rotation;
@@ -51,6 +63,7 @@ public class Player : MonoBehaviour {
             yield return null;
         }
         transform.rotation = to;
-        rotating = false;
+        //rotating = false;
     }
+    */
 }
