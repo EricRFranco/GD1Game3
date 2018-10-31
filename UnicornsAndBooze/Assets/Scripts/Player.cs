@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
     private Transform spawnPoint;
     [SerializeField]
     private Vector3 spawnOffset;
+    [SerializeField]
+    private float angularSpeed;
     //private bool rotating = false;
 
 	// Use this for initialization
@@ -30,14 +32,13 @@ public class Player : MonoBehaviour {
             transform.position -= (transform.forward * speed);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            StartCoroutine(Rotate(Vector3.up, -90f));
-            
+            transform.Rotate(0f, -angularSpeed, 0f, Space.World);  
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
-            StartCoroutine(Rotate(Vector3.up, 90f));
+            transform.Rotate(0f, angularSpeed, 0f, Space.World);
         }
 
         if(Input.GetKeyDown(KeyCode.Space))
@@ -46,6 +47,8 @@ public class Player : MonoBehaviour {
         }
 	}
 
+    //Coroutine out of date due to change in design
+    /*
     IEnumerator Rotate(Vector3 axis, float angle, float duration = 1.0f)
     {
         Quaternion from = transform.rotation;
@@ -62,4 +65,5 @@ public class Player : MonoBehaviour {
         transform.rotation = to;
         //rotating = false;
     }
+    */
 }
