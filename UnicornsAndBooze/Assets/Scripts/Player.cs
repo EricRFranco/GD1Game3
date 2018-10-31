@@ -70,7 +70,6 @@ public class Player : MonoBehaviour {
     {
         if(boomBox != null && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Playing music");
             boomBox.ToggleBoombox();
         }
     }

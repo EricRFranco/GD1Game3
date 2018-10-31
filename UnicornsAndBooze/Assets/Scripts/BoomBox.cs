@@ -27,7 +27,6 @@ public class BoomBox : MonoBehaviour {
         {
             GetComponent<AudioSource>().Play();
             isPlaying = true;
-            Debug.Log(GetComponent<AudioSource>().isPlaying);
         }  
         else
         {
