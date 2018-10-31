@@ -21,12 +21,12 @@ public class GenerateLevel : MonoBehaviour {
 		levelManager = GetComponent<LevelManagerScript> ();
 		levelRows = level.text.Split(new char[]{'\n'});
 		Bounds wallBounds = wallPrefab.GetComponent<MeshFilter> ().sharedMesh.bounds;
-		float wallLengthInMeters = wallBounds.extents.x * 2f;
-		float wallHalfHeightInMeters = wallBounds.extents.y;
-		float wallWidthInMeters = wallBounds.extents.z * 2f;
+		float wallLengthInMeters = wallBounds.extents.x * 2f * wallPrefab.transform.localScale.x;
+		float wallHalfHeightInMeters = wallBounds.extents.y * wallPrefab.transform.localScale.y;
+		float wallWidthInMeters = wallBounds.extents.z * 2f * wallPrefab.transform.localScale.z;
 		Bounds floorBounds = floorPrefab.GetComponent<MeshFilter> ().sharedMesh.bounds;
-		float floorLengthInMeters = floorBounds.extents.x * 2f;
-		float floorWidthInMeters = floorBounds.extents.z * 2f;
+		float floorLengthInMeters = floorBounds.extents.x * 2f * floorPrefab.transform.localScale.x;
+		float floorWidthInMeters = floorBounds.extents.z * 2f * floorPrefab.transform.localScale.z;
 
 		GameObject floor = Instantiate (floorPrefab);
 		floor.transform.position = levelCenter;
@@ -52,7 +52,7 @@ public class GenerateLevel : MonoBehaviour {
 				tile.position = placePosition;
 
 				if (levelRows [i] [j] == 'W') {
-					GameObject wall = Instantiate (wallPrefab, floor.transform);
+					GameObject wall = Instantiate (wallPrefab);
 					wall.transform.position = placePosition;
 					tile.isWall = true;
 				} else {
