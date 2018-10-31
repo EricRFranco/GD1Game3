@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
     private Rigidbody rb;
     private bool shirtAvailable = false;
     private int shirtCount = 0;
+
+    private BoomBox boomBox;
     //private bool rotating = false;
 
 	// Use this for initialization
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour {
 	void Update () {
         MovePlayer();
         GainShirt();
+        ToggleBoombox();
         if(Input.GetKeyDown(KeyCode.Space) && shirtCount > 0)
         {
             Instantiate(shirt, spawnPoint.position, Quaternion.identity);
@@ -63,14 +66,35 @@ public class Player : MonoBehaviour {
         }
     }
 
+    void ToggleBoombox()
+    {
+        if(boomBox != null && Input.GetKeyDown(KeyCode.E))
+        {
+            boomBox.ToggleBoombox();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        shirtAvailable = true;
+        if (other.gameObject.tag == "ShirtBin") 
+            shirtAvailable = true;
+
+        if (other.gameObject.tag == "Boombox")
+        { 
+            boomBox = other.gameObject.GetComponent<BoomBox>();
+        }
+            
     }
 
     private void OnTriggerExit(Collider other)
     {
-        shirtAvailable = false;
+        if(other.gameObject.tag == "ShirtBin")
+            shirtAvailable = false;
+
+        if (other.gameObject.tag == "Boombox")
+        {
+            boomBox = null;
+        }
     }
 
     //Coroutine out of date due to change in design
