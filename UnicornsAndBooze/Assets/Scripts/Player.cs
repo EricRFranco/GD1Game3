@@ -11,25 +11,25 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private Transform spawnPoint;
     [SerializeField]
-    private Vector3 spawnOffset;
-    [SerializeField]
     private float angularSpeed;
+
+    private Rigidbody rb;
     //private bool rotating = false;
 
 	// Use this for initialization
 	void Start () {
-		
+        rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKey(KeyCode.W))
         {
-            transform.position += (transform.forward * speed);
+            rb.velocity = transform.forward * speed;
         }
         else if(Input.GetKey(KeyCode.S))
         {
-            transform.position -= (transform.forward * speed);
+            rb.velocity = transform.forward * -speed;
         }
 
         if (Input.GetKey(KeyCode.A))
