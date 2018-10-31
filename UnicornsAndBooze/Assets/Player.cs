@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 
     [SerializeField]
     private float speed;
+    private bool rotating = false;
 
 	// Use this for initialization
 	void Start () {
@@ -23,5 +24,33 @@ public class Player : MonoBehaviour {
         {
             transform.position -= (transform.forward * speed);
         }
+
+        if (Input.GetKeyDown(KeyCode.A) && !rotating)
+        {
+            StartCoroutine(Rotate(Vector3.up, -90f));
+            rotating = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.D) && !rotating)
+        {
+            StartCoroutine(Rotate(Vector3.up, 90f));
+            rotating = true;
+        }
 	}
+
+    IEnumerator Rotate(Vector3 axis, float angle, float duration = 1.0f)
+    {
+        Quaternion from = transform.rotation;
+        Quaternion to = transform.rotation;
+        to *= Quaternion.Euler(axis * angle);
+
+        float elapsed = 0.0f;
+        while(elapsed < duration)
+        {
+            transform.rotation = Quaternion.Slerp(from, to, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        transform.rotation = to;
+        rotating = false;
+    }
 }
