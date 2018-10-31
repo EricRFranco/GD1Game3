@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 
     [SerializeField]
     private float speed;
-    private bool rotating = false;
+    //private bool rotating = false;
 
 	// Use this for initialization
 	void Start () {
@@ -25,15 +25,15 @@ public class Player : MonoBehaviour {
             transform.position -= (transform.forward * speed);
         }
 
-        if (Input.GetKeyDown(KeyCode.A) && !rotating)
+        if (Input.GetKeyDown(KeyCode.A))
         {
             StartCoroutine(Rotate(Vector3.up, -90f));
-            rotating = true;
+            
         }
-        else if (Input.GetKeyDown(KeyCode.D) && !rotating)
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             StartCoroutine(Rotate(Vector3.up, 90f));
-            rotating = true;
+            
         }
 	}
 
@@ -51,6 +51,6 @@ public class Player : MonoBehaviour {
             yield return null;
         }
         transform.rotation = to;
-        rotating = false;
+        //rotating = false;
     }
 }
