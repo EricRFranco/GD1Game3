@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2265b530d4dac4b43828ac9b12f993ae
+guid: f474006a8b9339d47a58fd67f9d2cace
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     2100000: lambert1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Robot
+    4300000: Shirt
   externalObjects: {}
   materials:
     importMaterials: 1

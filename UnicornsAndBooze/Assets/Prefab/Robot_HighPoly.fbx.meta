@@ -1,0 +1,369 @@
+fileFormatVersion: 2
+guid: 9de436c57ca520c48a1e749f90aeef92
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Body
+    100002: Body_Bits_Grp
+    100004: Hand_Base
+    100006: Hand_Base 1
+    100008: Head
+    100010: Head_Arm_1
+    100012: Head_Arm_1_Grp
+    100014: Head_Arm_2
+    100016: Head_Arm_2_Grp
+    100018: Head_Grp
+    100020: Head_Joint_2
+    100022: Head_Joint_2_Grp
+    100024: Head_Joint_Base
+    100026: Head_Joint_Base_Grp
+    100028: L_Arm_Arm_1
+    100030: L_Arm_Arm_1 1
+    100032: L_Arm_Arm_1_Grp
+    100034: L_Arm_Arm_1_Grp 1
+    100036: L_Arm_Arm_2
+    100038: L_Arm_Arm_2 1
+    100040: L_Arm_Arm_2_Grp
+    100042: L_Arm_Arm_2_Grp 1
+    100044: L_Arm_Joint_2
+    100046: L_Arm_Joint_2 1
+    100048: L_Arm_Joint_2 2
+    100050: L_Arm_Joint_2 3
+    100052: L_Arm_Joint_2_Grp
+    100054: L_Arm_Joint_2_Grp 1
+    100056: L_Arm_Joint_2_Grp1
+    100058: L_Arm_Joint_2_Grp1 1
+    100060: L_Arm_Joint_Base
+    100062: L_Arm_Joint_Base 1
+    100064: L_Arm_Joint_Base_Grp
+    100066: L_Finger_Joint_Base_Grp
+    100068: L_Finger_Joint_Base_Grp 1
+    100070: L_Hand
+    100072: R_Arm_Arm_1
+    100074: R_Arm_Arm_1 1
+    100076: R_Arm_Arm_1 2
+    100078: R_Arm_Arm_1 3
+    100080: R_Arm_Arm_1_Grp
+    100082: R_Arm_Arm_1_Grp 1
+    100084: R_Arm_Arm_1_Grp 2
+    100086: R_Arm_Arm_1_Grp 3
+    100088: R_Arm_Arm_2
+    100090: R_Arm_Arm_2 1
+    100092: R_Arm_Arm_2 2
+    100094: R_Arm_Arm_2 3
+    100096: R_Arm_Arm_2_Grp
+    100098: R_Arm_Arm_2_Grp 1
+    100100: R_Arm_Arm_2_Grp 2
+    100102: R_Arm_Arm_2_Grp 3
+    100104: R_Arm_Joint_2
+    100106: R_Arm_Joint_2 1
+    100108: R_Arm_Joint_2 2
+    100110: R_Arm_Joint_2 3
+    100112: R_Arm_Joint_2_Grp
+    100114: R_Arm_Joint_2_Grp 1
+    100116: R_Arm_Joint_2_Grp 2
+    100118: R_Arm_Joint_2_Grp 3
+    100120: R_Arm_Joint_Base
+    100122: R_Arm_Joint_Base 1
+    100124: R_Arm_Joint_Base 2
+    100126: R_Arm_Joint_Base 3
+    100128: R_Arm_Joint_Base_Grp
+    100130: R_Finger_Joint_Base_Grp
+    100132: R_Finger_Joint_Base_Grp 1
+    100134: R_Hand
+    100136: //RootNode
+    100138: Tire1
+    100140: Tire2
+    100142: Tire3
+    100144: Tire4
+    100146: Tire5
+    100148: Tire6
+    100150: Tire_Support_Frame
+    100152: Tires
+    400000: Body
+    400002: Body_Bits_Grp
+    400004: Hand_Base
+    400006: Hand_Base 1
+    400008: Head
+    400010: Head_Arm_1
+    400012: Head_Arm_1_Grp
+    400014: Head_Arm_2
+    400016: Head_Arm_2_Grp
+    400018: Head_Grp
+    400020: Head_Joint_2
+    400022: Head_Joint_2_Grp
+    400024: Head_Joint_Base
+    400026: Head_Joint_Base_Grp
+    400028: L_Arm_Arm_1
+    400030: L_Arm_Arm_1 1
+    400032: L_Arm_Arm_1_Grp
+    400034: L_Arm_Arm_1_Grp 1
+    400036: L_Arm_Arm_2
+    400038: L_Arm_Arm_2 1
+    400040: L_Arm_Arm_2_Grp
+    400042: L_Arm_Arm_2_Grp 1
+    400044: L_Arm_Joint_2
+    400046: L_Arm_Joint_2 1
+    400048: L_Arm_Joint_2 2
+    400050: L_Arm_Joint_2 3
+    400052: L_Arm_Joint_2_Grp
+    400054: L_Arm_Joint_2_Grp 1
+    400056: L_Arm_Joint_2_Grp1
+    400058: L_Arm_Joint_2_Grp1 1
+    400060: L_Arm_Joint_Base
+    400062: L_Arm_Joint_Base 1
+    400064: L_Arm_Joint_Base_Grp
+    400066: L_Finger_Joint_Base_Grp
+    400068: L_Finger_Joint_Base_Grp 1
+    400070: L_Hand
+    400072: R_Arm_Arm_1
+    400074: R_Arm_Arm_1 1
+    400076: R_Arm_Arm_1 2
+    400078: R_Arm_Arm_1 3
+    400080: R_Arm_Arm_1_Grp
+    400082: R_Arm_Arm_1_Grp 1
+    400084: R_Arm_Arm_1_Grp 2
+    400086: R_Arm_Arm_1_Grp 3
+    400088: R_Arm_Arm_2
+    400090: R_Arm_Arm_2 1
+    400092: R_Arm_Arm_2 2
+    400094: R_Arm_Arm_2 3
+    400096: R_Arm_Arm_2_Grp
+    400098: R_Arm_Arm_2_Grp 1
+    400100: R_Arm_Arm_2_Grp 2
+    400102: R_Arm_Arm_2_Grp 3
+    400104: R_Arm_Joint_2
+    400106: R_Arm_Joint_2 1
+    400108: R_Arm_Joint_2 2
+    400110: R_Arm_Joint_2 3
+    400112: R_Arm_Joint_2_Grp
+    400114: R_Arm_Joint_2_Grp 1
+    400116: R_Arm_Joint_2_Grp 2
+    400118: R_Arm_Joint_2_Grp 3
+    400120: R_Arm_Joint_Base
+    400122: R_Arm_Joint_Base 1
+    400124: R_Arm_Joint_Base 2
+    400126: R_Arm_Joint_Base 3
+    400128: R_Arm_Joint_Base_Grp
+    400130: R_Finger_Joint_Base_Grp
+    400132: R_Finger_Joint_Base_Grp 1
+    400134: R_Hand
+    400136: //RootNode
+    400138: Tire1
+    400140: Tire2
+    400142: Tire3
+    400144: Tire4
+    400146: Tire5
+    400148: Tire6
+    400150: Tire_Support_Frame
+    400152: Tires
+    2100000: lambert1
+    2100002: lambert3
+    2100004: lambert2
+    2100006: lambert4
+    2300000: Body
+    2300002: Hand_Base
+    2300004: Hand_Base 1
+    2300006: Head
+    2300008: Head_Arm_1
+    2300010: Head_Arm_2
+    2300012: Head_Joint_2
+    2300014: Head_Joint_Base
+    2300016: L_Arm_Arm_1
+    2300018: L_Arm_Arm_1 1
+    2300020: L_Arm_Arm_2
+    2300022: L_Arm_Arm_2 1
+    2300024: L_Arm_Joint_2
+    2300026: L_Arm_Joint_2 1
+    2300028: L_Arm_Joint_2 2
+    2300030: L_Arm_Joint_2 3
+    2300032: L_Arm_Joint_Base
+    2300034: L_Arm_Joint_Base 1
+    2300036: R_Arm_Arm_1
+    2300038: R_Arm_Arm_1 1
+    2300040: R_Arm_Arm_1 2
+    2300042: R_Arm_Arm_1 3
+    2300044: R_Arm_Arm_2
+    2300046: R_Arm_Arm_2 1
+    2300048: R_Arm_Arm_2 2
+    2300050: R_Arm_Arm_2 3
+    2300052: R_Arm_Joint_2
+    2300054: R_Arm_Joint_2 1
+    2300056: R_Arm_Joint_2 2
+    2300058: R_Arm_Joint_2 3
+    2300060: R_Arm_Joint_Base
+    2300062: R_Arm_Joint_Base 1
+    2300064: R_Arm_Joint_Base 2
+    2300066: R_Arm_Joint_Base 3
+    2300068: Tire1
+    2300070: Tire2
+    2300072: Tire3
+    2300074: Tire4
+    2300076: Tire5
+    2300078: Tire6
+    2300080: Tire_Support_Frame
+    3300000: Body
+    3300002: Hand_Base
+    3300004: Hand_Base 1
+    3300006: Head
+    3300008: Head_Arm_1
+    3300010: Head_Arm_2
+    3300012: Head_Joint_2
+    3300014: Head_Joint_Base
+    3300016: L_Arm_Arm_1
+    3300018: L_Arm_Arm_1 1
+    3300020: L_Arm_Arm_2
+    3300022: L_Arm_Arm_2 1
+    3300024: L_Arm_Joint_2
+    3300026: L_Arm_Joint_2 1
+    3300028: L_Arm_Joint_2 2
+    3300030: L_Arm_Joint_2 3
+    3300032: L_Arm_Joint_Base
+    3300034: L_Arm_Joint_Base 1
+    3300036: R_Arm_Arm_1
+    3300038: R_Arm_Arm_1 1
+    3300040: R_Arm_Arm_1 2
+    3300042: R_Arm_Arm_1 3
+    3300044: R_Arm_Arm_2
+    3300046: R_Arm_Arm_2 1
+    3300048: R_Arm_Arm_2 2
+    3300050: R_Arm_Arm_2 3
+    3300052: R_Arm_Joint_2
+    3300054: R_Arm_Joint_2 1
+    3300056: R_Arm_Joint_2 2
+    3300058: R_Arm_Joint_2 3
+    3300060: R_Arm_Joint_Base
+    3300062: R_Arm_Joint_Base 1
+    3300064: R_Arm_Joint_Base 2
+    3300066: R_Arm_Joint_Base 3
+    3300068: Tire1
+    3300070: Tire2
+    3300072: Tire3
+    3300074: Tire4
+    3300076: Tire5
+    3300078: Tire6
+    3300080: Tire_Support_Frame
+    4300000: Head_Joint_Base
+    4300002: Head_Arm_1
+    4300004: Head_Joint_2
+    4300006: Head_Arm_2
+    4300008: Head
+    4300010: L_Arm_Joint_Base
+    4300012: L_Arm_Arm_1
+    4300014: L_Arm_Joint_2
+    4300016: L_Arm_Arm_2
+    4300018: L_Arm_Joint_2
+    4300020: Hand_Base
+    4300022: R_Arm_Joint_Base
+    4300024: R_Arm_Arm_1
+    4300026: R_Arm_Joint_2
+    4300028: R_Arm_Arm_2
+    4300030: R_Arm_Joint_Base
+    4300032: R_Arm_Arm_1
+    4300034: R_Arm_Joint_2
+    4300036: R_Arm_Arm_2
+    4300038: L_Arm_Joint_Base
+    4300040: L_Arm_Arm_1
+    4300042: L_Arm_Joint_2
+    4300044: L_Arm_Arm_2
+    4300046: L_Arm_Joint_2
+    4300048: Hand_Base
+    4300050: R_Arm_Joint_Base
+    4300052: R_Arm_Arm_1
+    4300054: R_Arm_Joint_2
+    4300056: R_Arm_Arm_2
+    4300058: R_Arm_Joint_Base
+    4300060: R_Arm_Arm_1
+    4300062: R_Arm_Joint_2
+    4300064: R_Arm_Arm_2
+    4300066: Tire5
+    4300068: Tire4
+    4300070: Tire3
+    4300072: Tire2
+    4300074: Tire1
+    4300076: Tire6
+    4300078: Tire_Support_Frame
+    4300080: Body
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
