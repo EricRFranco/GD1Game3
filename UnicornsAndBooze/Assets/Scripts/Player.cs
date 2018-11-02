@@ -54,11 +54,19 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(0f, -angularSpeed, 0f, Space.World);
+            anim.SetBool("turningLeft", true);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(0f, angularSpeed, 0f, Space.World);
+            anim.SetBool("turningRight", true);
         }
+
+        if (Input.GetKeyUp(KeyCode.A))
+            anim.SetBool("turningLeft", false);
+
+        if (Input.GetKeyUp(KeyCode.D))
+            anim.SetBool("turningRight", false);
     }
 
     void GainShirt()
