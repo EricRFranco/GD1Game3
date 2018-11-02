@@ -34,10 +34,12 @@ public class Player : MonoBehaviour {
         ToggleBoombox();
         if(Input.GetKeyDown(KeyCode.Space) && shirtCount > 0)
         {
-            Instantiate(shirt, spawnPoint.position, Quaternion.identity);
+            anim.SetTrigger("placeShirt");
+            //Instantiate(shirt, spawnPoint.position, Quaternion.identity);
             shirtCount--;
         }
         anim.SetFloat("velocity", rb.velocity.z);
+        anim.SetInteger("shirts", shirtCount);
     }
 
     void MovePlayer()
