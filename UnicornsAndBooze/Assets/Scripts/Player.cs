@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     private float angularSpeed;
 
     private Rigidbody rb;
+    private Animator anim;
     private bool shirtAvailable = false;
     private int shirtCount = 0;
 
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -32,10 +34,13 @@ public class Player : MonoBehaviour {
         ToggleBoombox();
         if(Input.GetKeyDown(KeyCode.Space) && shirtCount > 0)
         {
-            Instantiate(shirt, spawnPoint.position, Quaternion.identity);
+            anim.Play("Put Shirt Down");
+            StartCoroutine(PlaceShirt());
             shirtCount--;
         }
-	}
+        anim.SetFloat("velocity", rb.velocity.z);
+        anim.SetInteger("shirts", shirtCount);
+    }
 
     void MovePlayer()
     {
@@ -51,11 +56,19 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(0f, -angularSpeed, 0f, Space.World);
+            anim.SetBool("turningLeft", true);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(0f, angularSpeed, 0f, Space.World);
+            anim.SetBool("turningRight", true);
         }
+
+        if (Input.GetKeyUp(KeyCode.A))
+            anim.SetBool("turningLeft", false);
+
+        if (Input.GetKeyUp(KeyCode.D))
+            anim.SetBool("turningRight", false);
     }
 
     void GainShirt()
@@ -71,7 +84,14 @@ public class Player : MonoBehaviour {
         if(boomBox != null && Input.GetKeyDown(KeyCode.E))
         {
             boomBox.ToggleBoombox();
+            anim.SetTrigger("interact");
         }
+    }
+
+    IEnumerator PlaceShirt()
+    {
+        yield return new WaitForSeconds(1.75f);
+        Instantiate(shirt, spawnPoint.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y - 90f, transform.rotation.z));
     }
 
     private void OnTriggerEnter(Collider other)
