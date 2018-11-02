@@ -82,6 +82,7 @@ public class Player : MonoBehaviour {
         if(boomBox != null && Input.GetKeyDown(KeyCode.E))
         {
             boomBox.ToggleBoombox();
+            anim.SetTrigger("interact");
         }
     }
 
