@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     private float angularSpeed;
 
     private Rigidbody rb;
+    private Animator anim;
     private bool shirtAvailable = false;
     private int shirtCount = 0;
 
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -35,7 +37,8 @@ public class Player : MonoBehaviour {
             Instantiate(shirt, spawnPoint.position, Quaternion.identity);
             shirtCount--;
         }
-	}
+        anim.SetFloat("velocity", rb.velocity.z);
+    }
 
     void MovePlayer()
     {
