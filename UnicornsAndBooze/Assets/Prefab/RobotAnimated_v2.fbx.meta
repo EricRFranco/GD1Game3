@@ -1,0 +1,485 @@
+fileFormatVersion: 2
+guid: c3c20caa68972c64995c6c93bbeea0ea
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: group
+    100002: pasted__Shirt
+    100004: Robot_Rigged:Head_Base_Joint_Ctrl
+    100006: Robot_Rigged:Head_Base_Joint_Ctrl1
+    100008: Robot_Rigged:Head_Head_Ctrl
+    100010: Robot_Rigged:Head_Head_Ctrl1
+    100012: Robot_Rigged:Head_Joint2_Ctrl
+    100014: Robot_Rigged:Head_Joint2_Ctrl1
+    100016: Robot_Rigged:L_Arm_Base_Ctrl
+    100018: Robot_Rigged:L_Arm_Base_Ctrl1
+    100020: Robot_Rigged:L_Arm_Joint2_Ctrl
+    100022: Robot_Rigged:L_Arm_Joint2_Ctrl1
+    100024: Robot_Rigged:L_Arm_Joint3_Ctrl
+    100026: Robot_Rigged:L_Arm_Joint3_Ctrl1
+    100028: Robot_Rigged:L_Hand_L_Base_Ctrl
+    100030: Robot_Rigged:L_Hand_L_Base_Ctrl1
+    100032: Robot_Rigged:L_Hand_L_Finger_Ctrl
+    100034: Robot_Rigged:L_Hand_L_Finger_Ctrl 1
+    100036: Robot_Rigged:L_Hand_R_Base_Ctrl
+    100038: Robot_Rigged:L_Hand_R_Base_Ctrl1
+    100040: Robot_Rigged:L_Hand_R_Finger_Ctrl
+    100042: Robot_Rigged:L_Hand_R_Finger_Ctrl1
+    100044: Robot_Rigged:nurbsCircle1
+    100046: Robot_Rigged:R_Arm_Base_Ctrl
+    100048: Robot_Rigged:R_Arm_Base_Ctrl_Grp
+    100050: Robot_Rigged:R_Arm_Joint2_Ctrl
+    100052: Robot_Rigged:R_Arm_Joint3_Ctrl
+    100054: Robot_Rigged:R_Arm_Joint3_Ctrl_Grp
+    100056: Robot_Rigged:R_Arm_L_Finger_Ctrl
+    100058: Robot_Rigged:R_Arm_L_Finger_Ctrl1
+    100060: Robot_Rigged:R_Arm_R_Finger_Ctrl
+    100062: Robot_Rigged:R_Arm_R_Finger_Ctrl_Grp
+    100064: Robot_Rigged:R_Hand_L_Base_Ctrl
+    100066: Robot_Rigged:R_Hand_L_Base_Ctrl_GRP
+    100068: Robot_Rigged:R_Hand_R_Base_Ctrl
+    100070: Robot_Rigged:R_Hand_R_Base_Ctrl1
+    100072: Robot_Rigged:R_Joint2_GRp
+    100074: Robot_Rigged:Robot_Model:AT_ST_GRP
+    100076: Robot_Rigged:Robot_Model:Body
+    100078: Robot_Rigged:Robot_Model:Body_Bits_Grp
+    100080: Robot_Rigged:Robot_Model:Hand_Base
+    100082: Robot_Rigged:Robot_Model:Hand_Base 1
+    100084: Robot_Rigged:Robot_Model:Head
+    100086: Robot_Rigged:Robot_Model:Head_Arm_1
+    100088: Robot_Rigged:Robot_Model:Head_Arm_1_Grp
+    100090: Robot_Rigged:Robot_Model:Head_Arm_2
+    100092: Robot_Rigged:Robot_Model:Head_Arm_2_Grp
+    100094: Robot_Rigged:Robot_Model:Head_Grp
+    100096: Robot_Rigged:Robot_Model:Head_Joint_2
+    100098: Robot_Rigged:Robot_Model:Head_Joint_2_Grp
+    100100: Robot_Rigged:Robot_Model:Head_Joint_Base
+    100102: Robot_Rigged:Robot_Model:Head_Joint_Base_Grp
+    100104: Robot_Rigged:Robot_Model:L_Arm_Arm_1
+    100106: Robot_Rigged:Robot_Model:L_Arm_Arm_1 1
+    100108: Robot_Rigged:Robot_Model:L_Arm_Arm_1_Grp
+    100110: Robot_Rigged:Robot_Model:L_Arm_Arm_1_Grp 1
+    100112: Robot_Rigged:Robot_Model:L_Arm_Arm_2
+    100114: Robot_Rigged:Robot_Model:L_Arm_Arm_2 1
+    100116: Robot_Rigged:Robot_Model:L_Arm_Arm_2_Grp
+    100118: Robot_Rigged:Robot_Model:L_Arm_Arm_2_Grp 1
+    100120: Robot_Rigged:Robot_Model:L_Arm_Joint_2
+    100122: Robot_Rigged:Robot_Model:L_Arm_Joint_2 1
+    100124: Robot_Rigged:Robot_Model:L_Arm_Joint_2 2
+    100126: Robot_Rigged:Robot_Model:L_Arm_Joint_2 3
+    100128: Robot_Rigged:Robot_Model:L_Arm_Joint_2_Grp
+    100130: Robot_Rigged:Robot_Model:L_Arm_Joint_2_Grp 1
+    100132: Robot_Rigged:Robot_Model:L_Arm_Joint_2_Grp1
+    100134: Robot_Rigged:Robot_Model:L_Arm_Joint_2_Grp1 1
+    100136: Robot_Rigged:Robot_Model:L_Arm_Joint_Base
+    100138: Robot_Rigged:Robot_Model:L_Arm_Joint_Base 1
+    100140: Robot_Rigged:Robot_Model:L_Arm_Joint_Base_Grp
+    100142: Robot_Rigged:Robot_Model:L_Finger_Joint_Base_Grp
+    100144: Robot_Rigged:Robot_Model:L_Finger_Joint_Base_Grp 1
+    100146: Robot_Rigged:Robot_Model:L_Hand
+    100148: Robot_Rigged:Robot_Model:L_Hand 1
+    100150: Robot_Rigged:Robot_Model:R_Arm_Arm_1
+    100152: Robot_Rigged:Robot_Model:R_Arm_Arm_1 1
+    100154: Robot_Rigged:Robot_Model:R_Arm_Arm_1 2
+    100156: Robot_Rigged:Robot_Model:R_Arm_Arm_1 3
+    100158: Robot_Rigged:Robot_Model:R_Arm_Arm_1_Grp
+    100160: Robot_Rigged:Robot_Model:R_Arm_Arm_1_Grp 1
+    100162: Robot_Rigged:Robot_Model:R_Arm_Arm_1_Grp 2
+    100164: Robot_Rigged:Robot_Model:R_Arm_Arm_1_Grp 3
+    100166: Robot_Rigged:Robot_Model:R_Arm_Arm_2
+    100168: Robot_Rigged:Robot_Model:R_Arm_Arm_2 1
+    100170: Robot_Rigged:Robot_Model:R_Arm_Arm_2 2
+    100172: Robot_Rigged:Robot_Model:R_Arm_Arm_2 3
+    100174: Robot_Rigged:Robot_Model:R_Arm_Arm_2_Grp
+    100176: Robot_Rigged:Robot_Model:R_Arm_Arm_2_Grp 1
+    100178: Robot_Rigged:Robot_Model:R_Arm_Arm_2_Grp 2
+    100180: Robot_Rigged:Robot_Model:R_Arm_Arm_2_Grp 3
+    100182: Robot_Rigged:Robot_Model:R_Arm_Joint_2
+    100184: Robot_Rigged:Robot_Model:R_Arm_Joint_2 1
+    100186: Robot_Rigged:Robot_Model:R_Arm_Joint_2 2
+    100188: Robot_Rigged:Robot_Model:R_Arm_Joint_2 3
+    100190: Robot_Rigged:Robot_Model:R_Arm_Joint_2_Grp
+    100192: Robot_Rigged:Robot_Model:R_Arm_Joint_2_Grp 1
+    100194: Robot_Rigged:Robot_Model:R_Arm_Joint_2_Grp 2
+    100196: Robot_Rigged:Robot_Model:R_Arm_Joint_2_Grp 3
+    100198: Robot_Rigged:Robot_Model:R_Arm_Joint_Base
+    100200: Robot_Rigged:Robot_Model:R_Arm_Joint_Base 1
+    100202: Robot_Rigged:Robot_Model:R_Arm_Joint_Base 2
+    100204: Robot_Rigged:Robot_Model:R_Arm_Joint_Base 3
+    100206: Robot_Rigged:Robot_Model:R_Arm_Joint_Base_Grp2
+    100208: Robot_Rigged:Robot_Model:R_Finger_Joint_Base_Grp
+    100210: Robot_Rigged:Robot_Model:R_Finger_Joint_Base_Grp 1
+    100212: Robot_Rigged:Robot_Model:Tire1
+    100214: Robot_Rigged:Robot_Model:Tire2
+    100216: Robot_Rigged:Robot_Model:Tire3
+    100218: Robot_Rigged:Robot_Model:Tire4
+    100220: Robot_Rigged:Robot_Model:Tire5
+    100222: Robot_Rigged:Robot_Model:Tire6
+    100224: Robot_Rigged:Robot_Model:Tire_Support_Frame
+    100226: Robot_Rigged:Robot_Model:Tires
+    100228: Robot_Rigged:Robot_ModelRNfosterParent1
+    100230: Robot_Rigged:Tire1_Ctrl
+    100232: Robot_Rigged:Tire1_Ctrl_Grp1
+    100234: Robot_Rigged:Tire1_Ctrl_Grp2
+    100236: Robot_Rigged:Tire1_Ctrl_Grp3
+    100238: Robot_Rigged:Tire1_Ctrl_Grp4
+    100240: Robot_Rigged:Tire1_Ctrl_Grp5
+    100242: Robot_Rigged:Tire1_Ctrl_Grp6
+    100244: Robot_Rigged:Tire2_Ctrl
+    100246: Robot_Rigged:Tire3_Ctrl
+    100248: Robot_Rigged:Tire4_Ctrl
+    100250: Robot_Rigged:Tire5_Ctrl
+    100252: Robot_Rigged:Tire6_Ctrl
+    100254: //RootNode
+    100256: Shirt_Ctrl
+    400000: group
+    400002: pasted__Shirt
+    400004: Robot_Rigged:Head_Base_Joint_Ctrl
+    400006: Robot_Rigged:Head_Base_Joint_Ctrl1
+    400008: Robot_Rigged:Head_Head_Ctrl
+    400010: Robot_Rigged:Head_Head_Ctrl1
+    400012: Robot_Rigged:Head_Joint2_Ctrl
+    400014: Robot_Rigged:Head_Joint2_Ctrl1
+    400016: Robot_Rigged:L_Arm_Base_Ctrl
+    400018: Robot_Rigged:L_Arm_Base_Ctrl1
+    400020: Robot_Rigged:L_Arm_Joint2_Ctrl
+    400022: Robot_Rigged:L_Arm_Joint2_Ctrl1
+    400024: Robot_Rigged:L_Arm_Joint3_Ctrl
+    400026: Robot_Rigged:L_Arm_Joint3_Ctrl1
+    400028: Robot_Rigged:L_Hand_L_Base_Ctrl
+    400030: Robot_Rigged:L_Hand_L_Base_Ctrl1
+    400032: Robot_Rigged:L_Hand_L_Finger_Ctrl
+    400034: Robot_Rigged:L_Hand_L_Finger_Ctrl 1
+    400036: Robot_Rigged:L_Hand_R_Base_Ctrl
+    400038: Robot_Rigged:L_Hand_R_Base_Ctrl1
+    400040: Robot_Rigged:L_Hand_R_Finger_Ctrl
+    400042: Robot_Rigged:L_Hand_R_Finger_Ctrl1
+    400044: Robot_Rigged:nurbsCircle1
+    400046: Robot_Rigged:R_Arm_Base_Ctrl
+    400048: Robot_Rigged:R_Arm_Base_Ctrl_Grp
+    400050: Robot_Rigged:R_Arm_Joint2_Ctrl
+    400052: Robot_Rigged:R_Arm_Joint3_Ctrl
+    400054: Robot_Rigged:R_Arm_Joint3_Ctrl_Grp
+    400056: Robot_Rigged:R_Arm_L_Finger_Ctrl
+    400058: Robot_Rigged:R_Arm_L_Finger_Ctrl1
+    400060: Robot_Rigged:R_Arm_R_Finger_Ctrl
+    400062: Robot_Rigged:R_Arm_R_Finger_Ctrl_Grp
+    400064: Robot_Rigged:R_Hand_L_Base_Ctrl
+    400066: Robot_Rigged:R_Hand_L_Base_Ctrl_GRP
+    400068: Robot_Rigged:R_Hand_R_Base_Ctrl
+    400070: Robot_Rigged:R_Hand_R_Base_Ctrl1
+    400072: Robot_Rigged:R_Joint2_GRp
+    400074: Robot_Rigged:Robot_Model:AT_ST_GRP
+    400076: Robot_Rigged:Robot_Model:Body
+    400078: Robot_Rigged:Robot_Model:Body_Bits_Grp
+    400080: Robot_Rigged:Robot_Model:Hand_Base
+    400082: Robot_Rigged:Robot_Model:Hand_Base 1
+    400084: Robot_Rigged:Robot_Model:Head
+    400086: Robot_Rigged:Robot_Model:Head_Arm_1
+    400088: Robot_Rigged:Robot_Model:Head_Arm_1_Grp
+    400090: Robot_Rigged:Robot_Model:Head_Arm_2
+    400092: Robot_Rigged:Robot_Model:Head_Arm_2_Grp
+    400094: Robot_Rigged:Robot_Model:Head_Grp
+    400096: Robot_Rigged:Robot_Model:Head_Joint_2
+    400098: Robot_Rigged:Robot_Model:Head_Joint_2_Grp
+    400100: Robot_Rigged:Robot_Model:Head_Joint_Base
+    400102: Robot_Rigged:Robot_Model:Head_Joint_Base_Grp
+    400104: Robot_Rigged:Robot_Model:L_Arm_Arm_1
+    400106: Robot_Rigged:Robot_Model:L_Arm_Arm_1 1
+    400108: Robot_Rigged:Robot_Model:L_Arm_Arm_1_Grp
+    400110: Robot_Rigged:Robot_Model:L_Arm_Arm_1_Grp 1
+    400112: Robot_Rigged:Robot_Model:L_Arm_Arm_2
+    400114: Robot_Rigged:Robot_Model:L_Arm_Arm_2 1
+    400116: Robot_Rigged:Robot_Model:L_Arm_Arm_2_Grp
+    400118: Robot_Rigged:Robot_Model:L_Arm_Arm_2_Grp 1
+    400120: Robot_Rigged:Robot_Model:L_Arm_Joint_2
+    400122: Robot_Rigged:Robot_Model:L_Arm_Joint_2 1
+    400124: Robot_Rigged:Robot_Model:L_Arm_Joint_2 2
+    400126: Robot_Rigged:Robot_Model:L_Arm_Joint_2 3
+    400128: Robot_Rigged:Robot_Model:L_Arm_Joint_2_Grp
+    400130: Robot_Rigged:Robot_Model:L_Arm_Joint_2_Grp 1
+    400132: Robot_Rigged:Robot_Model:L_Arm_Joint_2_Grp1
+    400134: Robot_Rigged:Robot_Model:L_Arm_Joint_2_Grp1 1
+    400136: Robot_Rigged:Robot_Model:L_Arm_Joint_Base
+    400138: Robot_Rigged:Robot_Model:L_Arm_Joint_Base 1
+    400140: Robot_Rigged:Robot_Model:L_Arm_Joint_Base_Grp
+    400142: Robot_Rigged:Robot_Model:L_Finger_Joint_Base_Grp
+    400144: Robot_Rigged:Robot_Model:L_Finger_Joint_Base_Grp 1
+    400146: Robot_Rigged:Robot_Model:L_Hand
+    400148: Robot_Rigged:Robot_Model:L_Hand 1
+    400150: Robot_Rigged:Robot_Model:R_Arm_Arm_1
+    400152: Robot_Rigged:Robot_Model:R_Arm_Arm_1 1
+    400154: Robot_Rigged:Robot_Model:R_Arm_Arm_1 2
+    400156: Robot_Rigged:Robot_Model:R_Arm_Arm_1 3
+    400158: Robot_Rigged:Robot_Model:R_Arm_Arm_1_Grp
+    400160: Robot_Rigged:Robot_Model:R_Arm_Arm_1_Grp 1
+    400162: Robot_Rigged:Robot_Model:R_Arm_Arm_1_Grp 2
+    400164: Robot_Rigged:Robot_Model:R_Arm_Arm_1_Grp 3
+    400166: Robot_Rigged:Robot_Model:R_Arm_Arm_2
+    400168: Robot_Rigged:Robot_Model:R_Arm_Arm_2 1
+    400170: Robot_Rigged:Robot_Model:R_Arm_Arm_2 2
+    400172: Robot_Rigged:Robot_Model:R_Arm_Arm_2 3
+    400174: Robot_Rigged:Robot_Model:R_Arm_Arm_2_Grp
+    400176: Robot_Rigged:Robot_Model:R_Arm_Arm_2_Grp 1
+    400178: Robot_Rigged:Robot_Model:R_Arm_Arm_2_Grp 2
+    400180: Robot_Rigged:Robot_Model:R_Arm_Arm_2_Grp 3
+    400182: Robot_Rigged:Robot_Model:R_Arm_Joint_2
+    400184: Robot_Rigged:Robot_Model:R_Arm_Joint_2 1
+    400186: Robot_Rigged:Robot_Model:R_Arm_Joint_2 2
+    400188: Robot_Rigged:Robot_Model:R_Arm_Joint_2 3
+    400190: Robot_Rigged:Robot_Model:R_Arm_Joint_2_Grp
+    400192: Robot_Rigged:Robot_Model:R_Arm_Joint_2_Grp 1
+    400194: Robot_Rigged:Robot_Model:R_Arm_Joint_2_Grp 2
+    400196: Robot_Rigged:Robot_Model:R_Arm_Joint_2_Grp 3
+    400198: Robot_Rigged:Robot_Model:R_Arm_Joint_Base
+    400200: Robot_Rigged:Robot_Model:R_Arm_Joint_Base 1
+    400202: Robot_Rigged:Robot_Model:R_Arm_Joint_Base 2
+    400204: Robot_Rigged:Robot_Model:R_Arm_Joint_Base 3
+    400206: Robot_Rigged:Robot_Model:R_Arm_Joint_Base_Grp2
+    400208: Robot_Rigged:Robot_Model:R_Finger_Joint_Base_Grp
+    400210: Robot_Rigged:Robot_Model:R_Finger_Joint_Base_Grp 1
+    400212: Robot_Rigged:Robot_Model:Tire1
+    400214: Robot_Rigged:Robot_Model:Tire2
+    400216: Robot_Rigged:Robot_Model:Tire3
+    400218: Robot_Rigged:Robot_Model:Tire4
+    400220: Robot_Rigged:Robot_Model:Tire5
+    400222: Robot_Rigged:Robot_Model:Tire6
+    400224: Robot_Rigged:Robot_Model:Tire_Support_Frame
+    400226: Robot_Rigged:Robot_Model:Tires
+    400228: Robot_Rigged:Robot_ModelRNfosterParent1
+    400230: Robot_Rigged:Tire1_Ctrl
+    400232: Robot_Rigged:Tire1_Ctrl_Grp1
+    400234: Robot_Rigged:Tire1_Ctrl_Grp2
+    400236: Robot_Rigged:Tire1_Ctrl_Grp3
+    400238: Robot_Rigged:Tire1_Ctrl_Grp4
+    400240: Robot_Rigged:Tire1_Ctrl_Grp5
+    400242: Robot_Rigged:Tire1_Ctrl_Grp6
+    400244: Robot_Rigged:Tire2_Ctrl
+    400246: Robot_Rigged:Tire3_Ctrl
+    400248: Robot_Rigged:Tire4_Ctrl
+    400250: Robot_Rigged:Tire5_Ctrl
+    400252: Robot_Rigged:Tire6_Ctrl
+    400254: //RootNode
+    400256: Shirt_Ctrl
+    2100000: lambert1
+    2100002: Robot_Rigged_Robot_Model_lambert3
+    2100004: Robot_Rigged_Robot_Model_lambert2
+    2100006: Robot_Rigged_Robot_Model_lambert4
+    2300000: pasted__Shirt
+    2300002: Robot_Rigged:Robot_Model:Body
+    2300004: Robot_Rigged:Robot_Model:Hand_Base
+    2300006: Robot_Rigged:Robot_Model:Hand_Base 1
+    2300008: Robot_Rigged:Robot_Model:Head
+    2300010: Robot_Rigged:Robot_Model:Head_Arm_1
+    2300012: Robot_Rigged:Robot_Model:Head_Arm_2
+    2300014: Robot_Rigged:Robot_Model:Head_Joint_2
+    2300016: Robot_Rigged:Robot_Model:Head_Joint_Base
+    2300018: Robot_Rigged:Robot_Model:L_Arm_Arm_1
+    2300020: Robot_Rigged:Robot_Model:L_Arm_Arm_1 1
+    2300022: Robot_Rigged:Robot_Model:L_Arm_Arm_2
+    2300024: Robot_Rigged:Robot_Model:L_Arm_Arm_2 1
+    2300026: Robot_Rigged:Robot_Model:L_Arm_Joint_2
+    2300028: Robot_Rigged:Robot_Model:L_Arm_Joint_2 1
+    2300030: Robot_Rigged:Robot_Model:L_Arm_Joint_2 2
+    2300032: Robot_Rigged:Robot_Model:L_Arm_Joint_2 3
+    2300034: Robot_Rigged:Robot_Model:L_Arm_Joint_Base
+    2300036: Robot_Rigged:Robot_Model:L_Arm_Joint_Base 1
+    2300038: Robot_Rigged:Robot_Model:R_Arm_Arm_1
+    2300040: Robot_Rigged:Robot_Model:R_Arm_Arm_1 1
+    2300042: Robot_Rigged:Robot_Model:R_Arm_Arm_1 2
+    2300044: Robot_Rigged:Robot_Model:R_Arm_Arm_1 3
+    2300046: Robot_Rigged:Robot_Model:R_Arm_Arm_2
+    2300048: Robot_Rigged:Robot_Model:R_Arm_Arm_2 1
+    2300050: Robot_Rigged:Robot_Model:R_Arm_Arm_2 2
+    2300052: Robot_Rigged:Robot_Model:R_Arm_Arm_2 3
+    2300054: Robot_Rigged:Robot_Model:R_Arm_Joint_2
+    2300056: Robot_Rigged:Robot_Model:R_Arm_Joint_2 1
+    2300058: Robot_Rigged:Robot_Model:R_Arm_Joint_2 2
+    2300060: Robot_Rigged:Robot_Model:R_Arm_Joint_2 3
+    2300062: Robot_Rigged:Robot_Model:R_Arm_Joint_Base
+    2300064: Robot_Rigged:Robot_Model:R_Arm_Joint_Base 1
+    2300066: Robot_Rigged:Robot_Model:R_Arm_Joint_Base 2
+    2300068: Robot_Rigged:Robot_Model:R_Arm_Joint_Base 3
+    2300070: Robot_Rigged:Robot_Model:Tire1
+    2300072: Robot_Rigged:Robot_Model:Tire2
+    2300074: Robot_Rigged:Robot_Model:Tire3
+    2300076: Robot_Rigged:Robot_Model:Tire4
+    2300078: Robot_Rigged:Robot_Model:Tire5
+    2300080: Robot_Rigged:Robot_Model:Tire6
+    2300082: Robot_Rigged:Robot_Model:Tire_Support_Frame
+    3300000: pasted__Shirt
+    3300002: Robot_Rigged:Robot_Model:Body
+    3300004: Robot_Rigged:Robot_Model:Hand_Base
+    3300006: Robot_Rigged:Robot_Model:Hand_Base 1
+    3300008: Robot_Rigged:Robot_Model:Head
+    3300010: Robot_Rigged:Robot_Model:Head_Arm_1
+    3300012: Robot_Rigged:Robot_Model:Head_Arm_2
+    3300014: Robot_Rigged:Robot_Model:Head_Joint_2
+    3300016: Robot_Rigged:Robot_Model:Head_Joint_Base
+    3300018: Robot_Rigged:Robot_Model:L_Arm_Arm_1
+    3300020: Robot_Rigged:Robot_Model:L_Arm_Arm_1 1
+    3300022: Robot_Rigged:Robot_Model:L_Arm_Arm_2
+    3300024: Robot_Rigged:Robot_Model:L_Arm_Arm_2 1
+    3300026: Robot_Rigged:Robot_Model:L_Arm_Joint_2
+    3300028: Robot_Rigged:Robot_Model:L_Arm_Joint_2 1
+    3300030: Robot_Rigged:Robot_Model:L_Arm_Joint_2 2
+    3300032: Robot_Rigged:Robot_Model:L_Arm_Joint_2 3
+    3300034: Robot_Rigged:Robot_Model:L_Arm_Joint_Base
+    3300036: Robot_Rigged:Robot_Model:L_Arm_Joint_Base 1
+    3300038: Robot_Rigged:Robot_Model:R_Arm_Arm_1
+    3300040: Robot_Rigged:Robot_Model:R_Arm_Arm_1 1
+    3300042: Robot_Rigged:Robot_Model:R_Arm_Arm_1 2
+    3300044: Robot_Rigged:Robot_Model:R_Arm_Arm_1 3
+    3300046: Robot_Rigged:Robot_Model:R_Arm_Arm_2
+    3300048: Robot_Rigged:Robot_Model:R_Arm_Arm_2 1
+    3300050: Robot_Rigged:Robot_Model:R_Arm_Arm_2 2
+    3300052: Robot_Rigged:Robot_Model:R_Arm_Arm_2 3
+    3300054: Robot_Rigged:Robot_Model:R_Arm_Joint_2
+    3300056: Robot_Rigged:Robot_Model:R_Arm_Joint_2 1
+    3300058: Robot_Rigged:Robot_Model:R_Arm_Joint_2 2
+    3300060: Robot_Rigged:Robot_Model:R_Arm_Joint_2 3
+    3300062: Robot_Rigged:Robot_Model:R_Arm_Joint_Base
+    3300064: Robot_Rigged:Robot_Model:R_Arm_Joint_Base 1
+    3300066: Robot_Rigged:Robot_Model:R_Arm_Joint_Base 2
+    3300068: Robot_Rigged:Robot_Model:R_Arm_Joint_Base 3
+    3300070: Robot_Rigged:Robot_Model:Tire1
+    3300072: Robot_Rigged:Robot_Model:Tire2
+    3300074: Robot_Rigged:Robot_Model:Tire3
+    3300076: Robot_Rigged:Robot_Model:Tire4
+    3300078: Robot_Rigged:Robot_Model:Tire5
+    3300080: Robot_Rigged:Robot_Model:Tire6
+    3300082: Robot_Rigged:Robot_Model:Tire_Support_Frame
+    4300000: pasted__Shirt
+    4300002: Robot_Rigged:Robot_Model:Head_Joint_Base
+    4300004: Robot_Rigged:Robot_Model:Head_Arm_1
+    4300006: Robot_Rigged:Robot_Model:Head_Joint_2
+    4300008: Robot_Rigged:Robot_Model:Head_Arm_2
+    4300010: Robot_Rigged:Robot_Model:Head
+    4300012: Robot_Rigged:Robot_Model:L_Arm_Joint_Base
+    4300014: Robot_Rigged:Robot_Model:L_Arm_Arm_1
+    4300016: Robot_Rigged:Robot_Model:L_Arm_Joint_2
+    4300018: Robot_Rigged:Robot_Model:L_Arm_Arm_2
+    4300020: Robot_Rigged:Robot_Model:L_Arm_Joint_2
+    4300022: Robot_Rigged:Robot_Model:Hand_Base
+    4300024: Robot_Rigged:Robot_Model:R_Arm_Joint_Base
+    4300026: Robot_Rigged:Robot_Model:R_Arm_Arm_1
+    4300028: Robot_Rigged:Robot_Model:R_Arm_Joint_2
+    4300030: Robot_Rigged:Robot_Model:R_Arm_Arm_2
+    4300032: Robot_Rigged:Robot_Model:R_Arm_Joint_Base
+    4300034: Robot_Rigged:Robot_Model:R_Arm_Arm_1
+    4300036: Robot_Rigged:Robot_Model:R_Arm_Joint_2
+    4300038: Robot_Rigged:Robot_Model:R_Arm_Arm_2
+    4300040: Robot_Rigged:Robot_Model:Tire5
+    4300042: Robot_Rigged:Robot_Model:Tire4
+    4300044: Robot_Rigged:Robot_Model:Tire3
+    4300046: Robot_Rigged:Robot_Model:Tire2
+    4300048: Robot_Rigged:Robot_Model:Tire1
+    4300050: Robot_Rigged:Robot_Model:Tire6
+    4300052: Robot_Rigged:Robot_Model:Tire_Support_Frame
+    4300054: Robot_Rigged:Robot_Model:Body
+    4300056: Robot_Rigged:Robot_Model:L_Arm_Joint_Base
+    4300058: Robot_Rigged:Robot_Model:L_Arm_Arm_1
+    4300060: Robot_Rigged:Robot_Model:L_Arm_Joint_2
+    4300062: Robot_Rigged:Robot_Model:L_Arm_Arm_2
+    4300064: Robot_Rigged:Robot_Model:L_Arm_Joint_2
+    4300066: Robot_Rigged:Robot_Model:Hand_Base
+    4300068: Robot_Rigged:Robot_Model:R_Arm_Joint_Base
+    4300070: Robot_Rigged:Robot_Model:R_Arm_Arm_1
+    4300072: Robot_Rigged:Robot_Model:R_Arm_Joint_2
+    4300074: Robot_Rigged:Robot_Model:R_Arm_Arm_2
+    4300076: Robot_Rigged:Robot_Model:R_Arm_Joint_Base
+    4300078: Robot_Rigged:Robot_Model:R_Arm_Arm_1
+    4300080: Robot_Rigged:Robot_Model:R_Arm_Joint_2
+    4300082: Robot_Rigged:Robot_Model:R_Arm_Arm_2
+    7400000: TPose
+    7400002: Forward
+    7400004: Backward
+    7400006: Interact
+    7400008: Put Shirt Down
+    7400010: Idle
+    7400012: Turn Right
+    7400014: Turn Left
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
