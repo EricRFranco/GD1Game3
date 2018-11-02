@@ -297,7 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   shirt: {fileID: 100000, guid: f474006a8b9339d47a58fd67f9d2cace, type: 3}
-  spawnPoint: {fileID: 1802614896}
+  spawnPoint: {fileID: 1428835555}
   angularSpeed: 1.5
 --- !u!4 &820650168 stripped
 Transform:
@@ -526,11 +526,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1802614896 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400254, guid: fb62de9fa3d2c8f4aab0a9b7da74cb0a,
-    type: 3}
-  m_PrefabInternal: {fileID: 820650164}
 --- !u!1 &1842389332
 GameObject:
   m_ObjectHideFlags: 0

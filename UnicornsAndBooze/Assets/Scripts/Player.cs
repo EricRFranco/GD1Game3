@@ -34,8 +34,8 @@ public class Player : MonoBehaviour {
         ToggleBoombox();
         if(Input.GetKeyDown(KeyCode.Space) && shirtCount > 0)
         {
-            anim.SetTrigger("placeShirt");
-            //Instantiate(shirt, spawnPoint.position, Quaternion.identity);
+            anim.Play("Put Shirt Down");
+            StartCoroutine(PlaceShirt());
             shirtCount--;
         }
         anim.SetFloat("velocity", rb.velocity.z);
@@ -86,6 +86,12 @@ public class Player : MonoBehaviour {
             boomBox.ToggleBoombox();
             anim.SetTrigger("interact");
         }
+    }
+
+    IEnumerator PlaceShirt()
+    {
+        yield return new WaitForSeconds(1.75f);
+        Instantiate(shirt, spawnPoint.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y - 90f, transform.rotation.z));
     }
 
     private void OnTriggerEnter(Collider other)
