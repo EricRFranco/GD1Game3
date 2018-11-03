@@ -111,7 +111,9 @@ public class PathfindingScript : MonoBehaviour {
 			bool hit = Physics.Raycast (transform.position, dir, out raycastHitData, rayCastRange);
 
 			Debug.DrawRay (transform.position, (hit ? raycastHitData.distance : rayCastRange) * dir);
-
+			if (raycastHitData.collider.tag == "Player") {
+				print ("Game Over");
+			}
 			vertices [i + 1] = transform.position + (hit ? raycastHitData.distance : rayCastRange) * dir;
 			uvs [i + 1] = Vector2.zero;
 			if (i != amountOfRayCasts) {
