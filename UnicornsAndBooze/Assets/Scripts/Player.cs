@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour {
     private Animator anim;
     private bool shirtAvailable = false;
     private int shirtCount = 0;
+    private bool canExit = false;
 
     private BoomBox boomBox;
     //private bool rotating = false;
@@ -85,6 +87,7 @@ public class Player : MonoBehaviour {
         {
             boomBox.ToggleBoombox();
             anim.SetTrigger("interact");
+            canExit = !canExit;
         }
     }
 
@@ -103,7 +106,12 @@ public class Player : MonoBehaviour {
         { 
             boomBox = other.gameObject.GetComponent<BoomBox>();
         }
-            
+         
+        if(other.gameObject.tag == "Door" && canExit)
+        {
+            //SceneManager.LoadScene(/*scene name here*/);
+            Debug.Log("Door opened");
+        }
     }
 
     private void OnTriggerExit(Collider other)

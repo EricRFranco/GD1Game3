@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5b843af28de3bb54a8fe75c54f917c3a
+guid: 5d15d2083e499e54cb402b392a4c4999
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -123,8 +123,6 @@ ModelImporter:
     7400006: Pick Up
     7400008: Drop
     7400010: Dance
-    7400012: Turn Left
-    7400014: Turn Right
     9500000: //RootNode
     13700000: Pudgy_Guy_Rigged:Pudgy_Guy_Model:polySurface5
   externalObjects: {}

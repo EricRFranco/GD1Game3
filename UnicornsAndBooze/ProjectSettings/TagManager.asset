@@ -10,6 +10,7 @@ TagManager:
   - Boombox
   - Enemy
   - Shirt
+  - Door
   layers:
   - Default
   - TransparentFX
