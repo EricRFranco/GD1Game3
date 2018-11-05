@@ -6,6 +6,7 @@ using UnityEngine;
 public enum State{
 	ONSETPATH,
 	DELIVERINGSHIRT,
+	RETURNINGTOPATH,
 	GOINGTODANCEFLOOR,
 	DANCING
 }
@@ -16,8 +17,6 @@ public class PathfindingScript : MonoBehaviour {
 
 	List<Vector3> originalPath;
     List<Vector3> currentPath;
-
-	public Vector3 goalPoint;
 
 	public float closeEnoughToPointDistance;
 
@@ -38,6 +37,11 @@ public class PathfindingScript : MonoBehaviour {
 
 	State currentState;
 
+	int startingIndexWhenReturningToPath;
+
+
+	GameObject boombox;
+
 	// Use this for initialization
 	void Awake () {
 		
@@ -45,13 +49,14 @@ public class PathfindingScript : MonoBehaviour {
 		rbody = GetComponent<Rigidbody> ();
 		visionCone = new GameObject("vision", typeof(MeshFilter), typeof(MeshRenderer));
 		visionCone.transform.position = Vector3.zero;
-
 		visionCone.GetComponent<MeshRenderer> ().material = visionMaterial;
 		currentState = State.ONSETPATH;
+		boombox = GameObject.FindGameObjectWithTag ("Boombox");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if (currentPath == null) {
 			//currentPath = levelManager.PathFind (transform.position, goalPoint);
 			//currentIndexOnPath = 0;
@@ -77,11 +82,21 @@ public class PathfindingScript : MonoBehaviour {
 		} else {
 			/*rbody.velocity = Vector3.zero;
 			rbody.angularVelocity = Vector3.zero;*/
-
-			if (currentState == State.ONSETPATH) {
+			switch (currentState) {
+			case(State.ONSETPATH):
 				currentPath.Reverse ();
 				currentIndexOnPath = 0;
+				break;
+			case(State.RETURNINGTOPATH):
+				currentIndexOnPath = startingIndexWhenReturningToPath;
+				currentPath = originalPath;
+				currentState = State.ONSETPATH;
+				break;
+			default:
+				break;
 			}
+
+
 
 		}
 		UpdateVisionCone ();
@@ -179,16 +194,67 @@ public class PathfindingScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider){
+		
 		switch (currentState) {
 
-			case State.ONSETPATH:
-
+		case State.ONSETPATH:
+		case State.RETURNINGTOPATH:
+			if (collider.tag == "Shirt") {
+				Destroy (collider.gameObject);
+				currentState = State.DELIVERINGSHIRT;
+				GameObject shirtBinTarget = FindClosestShirtBin();
+				currentPath = levelManager.PathFind (transform.position, shirtBinTarget.transform.position);
+				currentIndexOnPath = 0;
+			}
 				break;
-			default:
-				break;
+		case State.DELIVERINGSHIRT:
+			if (collider.tag == "ShirtBin") {
+				currentState = State.RETURNINGTOPATH;
+				Vector3 returnPoint = FindClosestPointOnOriginalPath ();
+				currentPath = levelManager.PathFind (transform.position, returnPoint);
+				currentIndexOnPath = 0;
+			}
+			break;
+		default:
+			break;
 
 		}
 
+	}
+
+	GameObject FindClosestShirtBin(){
+		GameObject[] shirtBins = GameObject.FindGameObjectsWithTag ("ShirtBin");
+		if (shirtBins.Length > 0) {
+			GameObject shirtBin = shirtBins [0];
+			float shortestDistance = Vector3.Distance (transform.position, shirtBin.transform.position);
+			for (int i = 1; i < shirtBins.Length; ++i) {
+				float distance = Vector3.Distance (transform.position, shirtBins [i].transform.position);
+				if (distance < shortestDistance) {
+					shortestDistance = distance;
+					shirtBin = shirtBins [i];
+				}
+			}
+			return shirtBin;
+		}
+		return null;
+	}
+
+	Vector3 FindClosestPointOnOriginalPath(){
+		if (originalPath.Count > 0) {
+			Vector3 closestPoint = originalPath [0];
+			float shortestDistance = Vector3.Distance (transform.position, closestPoint);
+			startingIndexWhenReturningToPath = 0;
+			for (int i = 1; i < originalPath.Count; ++i) {
+				float distance = Vector3.Distance (transform.position, originalPath[i]);
+				if (distance < shortestDistance) {
+					shortestDistance = distance;
+					startingIndexWhenReturningToPath = i;
+					closestPoint = originalPath [i];
+				}
+			}
+			return closestPoint;
+		}
+		return Vector3.zero;
 	}
 
 }

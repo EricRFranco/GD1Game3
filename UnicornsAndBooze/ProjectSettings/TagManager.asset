@@ -9,6 +9,7 @@ TagManager:
   - ShirtBin
   - Boombox
   - Enemy
+  - Shirt
   - Door
   layers:
   - Default
