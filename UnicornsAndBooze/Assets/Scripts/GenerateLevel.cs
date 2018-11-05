@@ -10,6 +10,7 @@ public class GenerateLevel : MonoBehaviour {
 
 	public GameObject shirtBinPrefab;
 
+	public GameObject boomboxPrefab;
 
 	public Vector3 levelCenter;
 
@@ -18,11 +19,12 @@ public class GenerateLevel : MonoBehaviour {
 	LevelManagerScript levelManager;
 	// Use this for initialization
 	void Awake () {
-        
+		
 		levelManager = GetComponent<LevelManagerScript> ();
 		levelRows = level.text.Split(new char[]{'\n'});
 		Bounds wallBounds = wallPrefab.GetComponent<MeshFilter> ().sharedMesh.bounds;
 		float wallLengthInMeters = wallBounds.extents.x * 2f * wallPrefab.transform.localScale.x;
+
 		float wallHalfHeightInMeters = wallBounds.extents.y * wallPrefab.transform.localScale.y;
 		float wallWidthInMeters = wallBounds.extents.z * 2f * wallPrefab.transform.localScale.z;
 		Bounds floorBounds = floorPrefab.GetComponent<MeshFilter> ().sharedMesh.bounds;
@@ -64,6 +66,9 @@ public class GenerateLevel : MonoBehaviour {
 				if (levelRows [i] [j] == 'S') {
 					GameObject shirtBin = Instantiate (shirtBinPrefab);
 					shirtBin.transform.position = placePosition;
+				} else if (levelRows [i] [j] == 'B') {
+					GameObject boombox = Instantiate (boomboxPrefab);
+					boombox.transform.position = placePosition;
 				}
 			
 

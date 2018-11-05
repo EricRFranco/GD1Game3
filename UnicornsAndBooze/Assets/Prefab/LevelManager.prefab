@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4898721778916404}
   - component: {fileID: 114895325188034690}
   - component: {fileID: 114650530790804698}
+  - component: {fileID: 114635484017318672}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: LevelManager
@@ -41,6 +42,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114635484017318672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1918404138894924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe07b4315552a274f8a6a74446a2121c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paths:
+  - pathNodes:
+    - tileX: 1
+      tileY: 1
+    - tileX: 2
+      tileY: 1
+    - tileX: 3
+      tileY: 1
+    - tileX: 4
+      tileY: 1
+    - tileX: 5
+      tileY: 1
+    - tileX: 6
+      tileY: 1
+    - tileX: 7
+      tileY: 1
+    - tileX: 8
+      tileY: 1
+  - pathNodes:
+    - tileX: 6
+      tileY: 4
+    - tileX: 7
+      tileY: 4
+    - tileX: 8
+      tileY: 4
+    - tileX: 8
+      tileY: 5
+    - tileX: 7
+      tileY: 5
+    - tileX: 6
+      tileY: 5
+  pathfindingNPCPrefab: {fileID: 1436055677808956, guid: 0046756b3aafd1d40b41838fc974109a,
+    type: 2}
 --- !u!114 &114650530790804698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,5 +112,8 @@ MonoBehaviour:
   wallPrefab: {fileID: 1850943565351612, guid: 4926bba82e1700c4ca417ae99bdb94dd, type: 2}
   floorPrefab: {fileID: 1735847954989570, guid: 4cf7f1ec17bbe104bb4e2fa964a5f6a0,
     type: 2}
-  pathfindingNPCPrefab: {fileID: 0}
+  shirtBinPrefab: {fileID: 1061510163154800, guid: 4c45c63fa75a98344a57b6fcd417a30a,
+    type: 2}
+  boomboxPrefab: {fileID: 1717455763223648, guid: 8c0fda40c12488143bd88482ac37b667,
+    type: 2}
   levelCenter: {x: 0, y: 0, z: 0}
