@@ -5,6 +5,8 @@ using UnityEngine;
 public class BoomBox : MonoBehaviour {
 
     private bool isPlaying = false;
+    [SerializeField]
+    private AudioSource chillTrack;
 
     public bool IsPlaying
     {
@@ -26,11 +28,13 @@ public class BoomBox : MonoBehaviour {
         if (!isPlaying)
         {
             GetComponent<AudioSource>().Play();
+            chillTrack.Stop();
             isPlaying = true;
         }  
         else
         {
             GetComponent<AudioSource>().Stop();
+            chillTrack.Play();
             isPlaying = false;
         }
             
