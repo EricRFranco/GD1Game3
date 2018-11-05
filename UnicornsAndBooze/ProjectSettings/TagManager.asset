@@ -8,6 +8,7 @@ TagManager:
   - LevelManager
   - ShirtBin
   - Boombox
+  - Enemy
   layers:
   - Default
   - TransparentFX

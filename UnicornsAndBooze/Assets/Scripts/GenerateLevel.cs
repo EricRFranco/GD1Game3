@@ -8,7 +8,8 @@ public class GenerateLevel : MonoBehaviour {
 
 	public GameObject floorPrefab;
 
-	public GameObject pathfindingNPCPrefab;
+	public GameObject shirtBinPrefab;
+
 
 	public Vector3 levelCenter;
 
@@ -50,7 +51,7 @@ public class GenerateLevel : MonoBehaviour {
 
 				Tile tile = new Tile ();
 				tile.position = placePosition;
-
+				tile.position.y = 0.5f;
 				if (levelRows [i] [j] == 'W') {
 					GameObject wall = Instantiate (wallPrefab);
 					wall.transform.position = placePosition;
@@ -60,10 +61,11 @@ public class GenerateLevel : MonoBehaviour {
 					tile.isWall = false;
 				}
 
-				if (levelRows [i] [j] == 'N') {
-					GameObject NPC = Instantiate (pathfindingNPCPrefab);
-					NPC.transform.position = placePosition;
+				if (levelRows [i] [j] == 'S') {
+					GameObject shirtBin = Instantiate (shirtBinPrefab);
+					shirtBin.transform.position = placePosition;
 				}
+			
 
 				levelManager.levelGrid [i] [j] = tile;
 			}
