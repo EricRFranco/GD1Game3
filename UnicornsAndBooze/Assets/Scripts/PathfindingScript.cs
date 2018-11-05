@@ -17,7 +17,7 @@ public class PathfindingScript : MonoBehaviour {
 	List<Vector3> originalPath;
     List<Vector3> currentPath;
 
-	public Vector3 goalPoint;
+	//Vector3 goalPoint;
 
 	public float closeEnoughToPointDistance;
 
@@ -179,16 +179,45 @@ public class PathfindingScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider){
+		
 		switch (currentState) {
 
-			case State.ONSETPATH:
-
+		case State.ONSETPATH:
+			if (collider.tag == "Shirt") {
+				Destroy (collider.gameObject);
+				currentState = State.DELIVERINGSHIRT;
+				GameObject shirtBinTarget = FindClosestShirtBin();
+				currentPath = levelManager.PathFind (transform.position, shirtBinTarget.transform.position);
+				currentIndexOnPath = 0;
+			}
 				break;
-			default:
-				break;
+		case State.DELIVERINGSHIRT:
+			if (collider.tag == "ShirtBin") {
+				currentState = State.ONSETPATH;
+			}
+			break;
+		default:
+			break;
 
 		}
 
+	}
+
+	GameObject FindClosestShirtBin(){
+		GameObject[] shirtBins = GameObject.FindGameObjectsWithTag ("ShirtBin");
+		if (shirtBins.Length > 0) {
+			GameObject shirtBin = shirtBins [0];
+			float shortestDistance = Vector3.Distance (transform.position, shirtBin.transform.position);
+			for (int i = 1; i < shirtBins.Length; ++i) {
+				float distance = Vector3.Distance (transform.position, shirtBins [i].transform.position);
+				if (distance < shortestDistance) {
+					shortestDistance = distance;
+					shirtBin = shirtBins [i];
+				}
+			}
+			return shirtBin;
+		}
+		return null;
 	}
 
 }

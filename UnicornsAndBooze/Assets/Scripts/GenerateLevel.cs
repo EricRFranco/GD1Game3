@@ -10,6 +10,7 @@ public class GenerateLevel : MonoBehaviour {
 
 	public GameObject shirtBinPrefab;
 
+	public GameObject boomboxPrefab;
 
 	public Vector3 levelCenter;
 
@@ -64,6 +65,9 @@ public class GenerateLevel : MonoBehaviour {
 				if (levelRows [i] [j] == 'S') {
 					GameObject shirtBin = Instantiate (shirtBinPrefab);
 					shirtBin.transform.position = placePosition;
+				} else if (levelRows [i] [j] == 'B') {
+					GameObject boombox = Instantiate (boomboxPrefab);
+					boombox.transform.position = placePosition;
 				}
 			
 
