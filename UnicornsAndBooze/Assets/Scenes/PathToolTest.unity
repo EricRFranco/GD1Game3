@@ -113,55 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &293585550 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1918404138894924, guid: 3318a5970b8511b4c87f2bde05165aff,
-    type: 2}
-  m_PrefabInternal: {fileID: 1916947074}
---- !u!114 &293585551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 293585550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe07b4315552a274f8a6a74446a2121c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paths:
-  - pathNodes:
-    - tileX: 1
-      tileY: 1
-    - tileX: 2
-      tileY: 1
-    - tileX: 3
-      tileY: 1
-    - tileX: 4
-      tileY: 1
-    - tileX: 5
-      tileY: 1
-    - tileX: 6
-      tileY: 1
-    - tileX: 7
-      tileY: 1
-    - tileX: 8
-      tileY: 1
-  - pathNodes:
-    - tileX: 6
-      tileY: 4
-    - tileX: 7
-      tileY: 4
-    - tileX: 8
-      tileY: 4
-    - tileX: 8
-      tileY: 5
-    - tileX: 7
-      tileY: 5
-    - tileX: 6
-      tileY: 5
-  pathfindingNPCPrefab: {fileID: 1436055677808956, guid: 0046756b3aafd1d40b41838fc974109a,
-    type: 2}
 --- !u!1 &1085879997
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,18 +354,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114895325188034690, guid: 3318a5970b8511b4c87f2bde05165aff,
-        type: 2}
-      propertyPath: shirtBinPrefab
-      value: 
-      objectReference: {fileID: 1061510163154800, guid: 4c45c63fa75a98344a57b6fcd417a30a,
-        type: 2}
-    - target: {fileID: 114895325188034690, guid: 3318a5970b8511b4c87f2bde05165aff,
-        type: 2}
-      propertyPath: boomboxPrefab
-      value: 
-      objectReference: {fileID: 1717455763223648, guid: 8c0fda40c12488143bd88482ac37b667,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3318a5970b8511b4c87f2bde05165aff, type: 2}
   m_IsPrefabAsset: 0

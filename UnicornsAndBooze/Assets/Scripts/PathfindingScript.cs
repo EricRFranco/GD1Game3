@@ -18,8 +18,6 @@ public class PathfindingScript : MonoBehaviour {
 	List<Vector3> originalPath;
     List<Vector3> currentPath;
 
-	//Vector3 goalPoint;
-
 	public float closeEnoughToPointDistance;
 
 	public float maxAcceleration;
@@ -41,6 +39,9 @@ public class PathfindingScript : MonoBehaviour {
 
 	int startingIndexWhenReturningToPath;
 
+
+	GameObject boombox;
+
 	// Use this for initialization
 	void Awake () {
 		
@@ -48,13 +49,14 @@ public class PathfindingScript : MonoBehaviour {
 		rbody = GetComponent<Rigidbody> ();
 		visionCone = new GameObject("vision", typeof(MeshFilter), typeof(MeshRenderer));
 		visionCone.transform.position = Vector3.zero;
-
 		visionCone.GetComponent<MeshRenderer> ().material = visionMaterial;
 		currentState = State.ONSETPATH;
+		boombox = GameObject.FindGameObjectWithTag ("Boombox");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if (currentPath == null) {
 			//currentPath = levelManager.PathFind (transform.position, goalPoint);
 			//currentIndexOnPath = 0;
