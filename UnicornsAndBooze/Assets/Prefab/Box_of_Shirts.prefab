@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4871928372962020}
   - component: {fileID: 135680160655032672}
   m_Layer: 0
-  m_Name: ShirtBox
+  m_Name: Box_of_Shirts
   m_TagString: ShirtBin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
