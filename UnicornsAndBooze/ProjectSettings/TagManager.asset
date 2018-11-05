@@ -9,6 +9,7 @@ TagManager:
   - ShirtBin
   - Boombox
   - Enemy
+  - Door
   layers:
   - Default
   - TransparentFX
