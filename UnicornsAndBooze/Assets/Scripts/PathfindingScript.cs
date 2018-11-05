@@ -6,6 +6,7 @@ using UnityEngine;
 public enum State{
 	ONSETPATH,
 	DELIVERINGSHIRT,
+	RETURNINGTOPATH,
 	GOINGTODANCEFLOOR,
 	DANCING
 }
@@ -37,6 +38,8 @@ public class PathfindingScript : MonoBehaviour {
 	public int amountOfRayCasts;
 
 	State currentState;
+
+	int startingIndexWhenReturningToPath;
 
 	// Use this for initialization
 	void Awake () {
@@ -77,11 +80,21 @@ public class PathfindingScript : MonoBehaviour {
 		} else {
 			/*rbody.velocity = Vector3.zero;
 			rbody.angularVelocity = Vector3.zero;*/
-
-			if (currentState == State.ONSETPATH) {
+			switch (currentState) {
+			case(State.ONSETPATH):
 				currentPath.Reverse ();
 				currentIndexOnPath = 0;
+				break;
+			case(State.RETURNINGTOPATH):
+				currentIndexOnPath = startingIndexWhenReturningToPath;
+				currentPath = originalPath;
+				currentState = State.ONSETPATH;
+				break;
+			default:
+				break;
 			}
+
+
 
 		}
 		UpdateVisionCone ();
@@ -183,6 +196,7 @@ public class PathfindingScript : MonoBehaviour {
 		switch (currentState) {
 
 		case State.ONSETPATH:
+		case State.RETURNINGTOPATH:
 			if (collider.tag == "Shirt") {
 				Destroy (collider.gameObject);
 				currentState = State.DELIVERINGSHIRT;
@@ -193,7 +207,10 @@ public class PathfindingScript : MonoBehaviour {
 				break;
 		case State.DELIVERINGSHIRT:
 			if (collider.tag == "ShirtBin") {
-				currentState = State.ONSETPATH;
+				currentState = State.RETURNINGTOPATH;
+				Vector3 returnPoint = FindClosestPointOnOriginalPath ();
+				currentPath = levelManager.PathFind (transform.position, returnPoint);
+				currentIndexOnPath = 0;
 			}
 			break;
 		default:
@@ -218,6 +235,24 @@ public class PathfindingScript : MonoBehaviour {
 			return shirtBin;
 		}
 		return null;
+	}
+
+	Vector3 FindClosestPointOnOriginalPath(){
+		if (originalPath.Count > 0) {
+			Vector3 closestPoint = originalPath [0];
+			float shortestDistance = Vector3.Distance (transform.position, closestPoint);
+			startingIndexWhenReturningToPath = 0;
+			for (int i = 1; i < originalPath.Count; ++i) {
+				float distance = Vector3.Distance (transform.position, originalPath[i]);
+				if (distance < shortestDistance) {
+					shortestDistance = distance;
+					startingIndexWhenReturningToPath = i;
+					closestPoint = originalPath [i];
+				}
+			}
+			return closestPoint;
+		}
+		return Vector3.zero;
 	}
 
 }

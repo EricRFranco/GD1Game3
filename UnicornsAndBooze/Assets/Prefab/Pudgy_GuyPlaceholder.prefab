@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23665379017293314}
   - component: {fileID: 54844841096189114}
   - component: {fileID: 114366962669132648}
+  - component: {fileID: 65519142591865632}
   m_Layer: 0
   m_Name: Pudgy_GuyPlaceholder
   m_TagString: Enemy
@@ -100,6 +101,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65519142591865632
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436055677808956}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04009944, y: 0.079753324, z: 0.04009941}
+  m_Center: {x: 0.0000000027939675, y: 0, z: 0.0000000065192576}
 --- !u!114 &114366962669132648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ceadede8ce9b94cb95ccb9df716423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalPoint: {x: -4, y: 0.5, z: 0.5}
   closeEnoughToPointDistance: 0.19
   maxAcceleration: 0.4
   maxVelocity: 1.1
