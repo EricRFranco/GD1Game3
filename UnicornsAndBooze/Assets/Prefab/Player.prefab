@@ -5730,7 +5730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  shirt: {fileID: 100000, guid: f474006a8b9339d47a58fd67f9d2cace, type: 3}
+  shirt: {fileID: 1676793457813996, guid: 432e6a1c804ada54abbdd7a7ee6b8302, type: 2}
   spawnPoint: {fileID: 4725057272532762}
   angularSpeed: 1.5
   shirtText: {fileID: 0}

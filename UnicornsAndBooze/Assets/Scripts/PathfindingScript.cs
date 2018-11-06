@@ -75,6 +75,7 @@ public class PathfindingScript : MonoBehaviour {
 				currentState = State.GOINGTODANCEFLOOR;
 				currentPath = levelManager.PathFind (transform.position, boombox.transform.parent.position);
 				currentIndexOnPath = 0;
+				Destroy (visionCone);
 			}
 
 			if ((Vector3.Distance (transform.position, currentPath [currentPath.Count - 1]) > closeEnoughToPointDistance && currentState != State.GOINGTODANCEFLOOR)
@@ -108,14 +109,15 @@ public class PathfindingScript : MonoBehaviour {
 					break;
 				case(State.GOINGTODANCEFLOOR):
 					currentState = State.DANCING;
-					Destroy (visionCone);
 					break;
 				default:
 					rbody.velocity = Vector2.zero;
 					break;
 				}
 			}
-			UpdateVisionCone ();
+			if (currentState != State.GOINGTODANCEFLOOR) {
+				UpdateVisionCone ();
+			}
 		} else {
 			rbody.velocity = Vector2.zero;
 		}
@@ -242,10 +244,10 @@ public class PathfindingScript : MonoBehaviour {
 		case State.ONSETPATH:
 		case State.RETURNINGTOPATH:
 			if (collider.tag == "Shirt") {
-				Destroy (collider.gameObject);
+				Destroy (collider.transform.parent.gameObject);
 				currentState = State.DELIVERINGSHIRT;
 				GameObject shirtBinTarget = FindClosestShirtBin();
-				currentPath = levelManager.PathFind (transform.position, shirtBinTarget.transform.position);
+				currentPath = levelManager.PathFind (transform.position, new Vector3(shirtBinTarget.transform.position.x, transform.position.y, shirtBinTarget.transform.position.z));
 				currentIndexOnPath = 0;
 			}
 				break;
