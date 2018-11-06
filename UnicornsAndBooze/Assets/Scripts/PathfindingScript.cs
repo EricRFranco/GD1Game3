@@ -42,6 +42,8 @@ public class PathfindingScript : MonoBehaviour {
 
 	int startingIndexWhenReturningToPath;
 
+	SceneChanger sceneChanger;
+
 
 	GameObject boombox;
 
@@ -49,7 +51,7 @@ public class PathfindingScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		
+		sceneChanger = GameObject.Find("SceneManager").GetComponent<SceneChanger>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManagerScript>();
 		rbody = GetComponent<Rigidbody> ();
 		visionCone = new GameObject("vision", typeof(MeshFilter), typeof(MeshRenderer));
@@ -70,10 +72,13 @@ public class PathfindingScript : MonoBehaviour {
 			currentIndexOnPath = 0;
 			currentPath = originalPath;
 		}
+
 		if (currentState != State.DANCING) {
 			if (boombox.GetComponent<BoomBox> ().IsPlaying && currentState != State.GOINGTODANCEFLOOR && currentState != State.DANCING) {
 				currentState = State.GOINGTODANCEFLOOR;
-				currentPath = levelManager.PathFind (transform.position, boombox.transform.parent.position);
+				Vector3 targetPoint = boombox.transform.parent.position;
+				targetPoint.y = transform.position.y;
+				currentPath = levelManager.PathFind (transform.position, targetPoint);
 				currentIndexOnPath = 0;
 				Destroy (visionCone);
 			}
@@ -115,7 +120,8 @@ public class PathfindingScript : MonoBehaviour {
 					break;
 				}
 			}
-			if (currentState != State.GOINGTODANCEFLOOR) {
+			if (currentState != State.GOINGTODANCEFLOOR && currentState != State.DANCING) {
+				
 				UpdateVisionCone ();
 			}
 		} else {
@@ -170,7 +176,8 @@ public class PathfindingScript : MonoBehaviour {
 
 			Debug.DrawRay (rayCastStart, (hit ? raycastHitData.distance : rayCastRange) * dir);
 			if (hit && raycastHitData.collider.tag == "Player") {
-				//print ("Game Over");
+				
+				sceneChanger.GameOver ();
 			}
 			vertices [i + 1] = rayCastStart + (hit ? raycastHitData.distance : rayCastRange) * dir;
 			uvs [i + 1] = Vector2.zero;

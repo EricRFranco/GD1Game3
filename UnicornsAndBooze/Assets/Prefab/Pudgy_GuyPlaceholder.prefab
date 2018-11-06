@@ -132,7 +132,7 @@ MonoBehaviour:
   timeToTarget: 0.3
   avoidingOtherAgentsDistance: 0.8
   repulsionConstant: 0.2
-  rayCastOffsetHeight: 0.3
+  rayCastOffsetHeight: 0.2
   visionMaterial: {fileID: 2100000, guid: 04100f8404f946d41b58ab19e48a5173, type: 2}
   rayCastRange: 2
   rayCastTotalAngle: 90
