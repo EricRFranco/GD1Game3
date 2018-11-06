@@ -12,19 +12,22 @@ public enum State{
 }
 
 public class PathfindingScript : MonoBehaviour {
-
+	
 	LevelManagerScript levelManager;
 
 	List<Vector3> originalPath;
     List<Vector3> currentPath;
 
 	public float closeEnoughToPointDistance;
-
+	public float closeEnoughToBoomBoxDistance;
 	public float maxAcceleration;
 	public float maxVelocity;
 
 	public float slowRadius;
 	public float timeToTarget;
+
+	public float avoidingOtherAgentsDistance;
+	public float repulsionConstant;
 
 	int currentIndexOnPath;
 	Rigidbody rbody;
@@ -42,6 +45,8 @@ public class PathfindingScript : MonoBehaviour {
 
 	GameObject boombox;
 
+	GameObject[] otherPudgys;
+
 	// Use this for initialization
 	void Awake () {
 		
@@ -53,6 +58,11 @@ public class PathfindingScript : MonoBehaviour {
 		currentState = State.ONSETPATH;
 		boombox = GameObject.FindGameObjectWithTag ("Boombox");
 	}
+
+
+	void Start() {
+		otherPudgys = GameObject.FindGameObjectsWithTag ("Enemy");
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -60,50 +70,55 @@ public class PathfindingScript : MonoBehaviour {
 			currentIndexOnPath = 0;
 			currentPath = originalPath;
 		}
-
-		if (boombox.GetComponent<BoomBox> ().IsPlaying && currentState != State.GOINGTODANCEFLOOR && currentState != State.DANCING) {
-			currentState = State.GOINGTODANCEFLOOR;
-			currentPath = levelManager.PathFind (transform.position, boombox.transform.position);
-			currentIndexOnPath = 0;
-		}
-
-		if (Vector3.Distance (transform.position, currentPath[currentPath.Count - 1]) > closeEnoughToPointDistance) {
-			if (Vector3.Distance (transform.position, currentPath [currentIndexOnPath]) <= closeEnoughToPointDistance) {
-				currentIndexOnPath++;
-
-			}
-			Vector3 acceleration = FollowPath (transform.position, currentPath, currentIndexOnPath, rbody.velocity);
-			if (acceleration.magnitude > maxAcceleration) {
-				acceleration = acceleration.normalized * maxAcceleration;
-			}
-			rbody.velocity += acceleration;
-			if (rbody.velocity.magnitude > maxVelocity) {
-				rbody.velocity = rbody.velocity.normalized * maxVelocity;
-			}
-			float angle = Mathf.Atan2 (rbody.velocity.x, rbody.velocity.z);
-			transform.eulerAngles = new Vector3 (0, Mathf.Rad2Deg * angle, 0);
-
-		} else {
-			
-			switch (currentState) {
-			case(State.ONSETPATH):
-				currentPath.Reverse ();
+		if (currentState != State.DANCING) {
+			if (boombox.GetComponent<BoomBox> ().IsPlaying && currentState != State.GOINGTODANCEFLOOR && currentState != State.DANCING) {
+				currentState = State.GOINGTODANCEFLOOR;
+				currentPath = levelManager.PathFind (transform.position, boombox.transform.parent.position);
 				currentIndexOnPath = 0;
-				break;
-			case(State.RETURNINGTOPATH):
-				currentIndexOnPath = startingIndexWhenReturningToPath;
-				currentPath = originalPath;
-				currentState = State.ONSETPATH;
-				break;
-			case(State.GOINGTODANCEFLOOR):
-				currentState = State.DANCING;
-				break;
-			default:
-				rbody.velocity = Vector2.zero;
-				break;
 			}
+
+			if ((Vector3.Distance (transform.position, currentPath [currentPath.Count - 1]) > closeEnoughToPointDistance && currentState != State.GOINGTODANCEFLOOR)
+				|| (Vector3.Distance (transform.position, currentPath [currentPath.Count - 1]) > closeEnoughToBoomBoxDistance && currentState == State.GOINGTODANCEFLOOR)) {
+				if (Vector3.Distance (transform.position, currentPath [currentIndexOnPath]) <= closeEnoughToPointDistance) {
+					currentIndexOnPath++;
+
+				}
+				Vector3 acceleration = FollowPath (transform.position, currentPath, currentIndexOnPath, rbody.velocity) + AvoidCollisions();
+				if (acceleration.magnitude > maxAcceleration) {
+					acceleration = acceleration.normalized * maxAcceleration;
+				}
+				rbody.velocity += acceleration;
+				if (rbody.velocity.magnitude > maxVelocity) {
+					rbody.velocity = rbody.velocity.normalized * maxVelocity;
+				}
+				float angle = Mathf.Atan2 (rbody.velocity.x, rbody.velocity.z);
+				transform.eulerAngles = new Vector3 (0, Mathf.Rad2Deg * angle, 0);
+
+			} else {
+			
+				switch (currentState) {
+				case(State.ONSETPATH):
+					currentPath.Reverse ();
+					currentIndexOnPath = 0;
+					break;
+				case(State.RETURNINGTOPATH):
+					currentIndexOnPath = startingIndexWhenReturningToPath;
+					currentPath = originalPath;
+					currentState = State.ONSETPATH;
+					break;
+				case(State.GOINGTODANCEFLOOR):
+					currentState = State.DANCING;
+					Destroy (visionCone);
+					break;
+				default:
+					rbody.velocity = Vector2.zero;
+					break;
+				}
+			}
+			UpdateVisionCone ();
+		} else {
+			rbody.velocity = Vector2.zero;
 		}
-		UpdateVisionCone ();
 	}
 	
 
@@ -175,6 +190,27 @@ public class PathfindingScript : MonoBehaviour {
 	}
 
 
+	Vector3 AvoidCollisions(){
+		Vector3 seperation = Vector3.zero;
+		int numClose = 0;
+
+		foreach (GameObject pudgy in otherPudgys) {
+			float distance = Vector3.Distance (transform.position, pudgy.transform.position);
+			if (pudgy != gameObject && distance < avoidingOtherAgentsDistance) {
+				float strength = Mathf.Max (repulsionConstant / distance, maxAcceleration);
+
+				seperation += strength * (transform.position - pudgy.transform.position).normalized;
+				numClose++;
+			}
+		}
+
+		if (numClose > 0) {
+			seperation *= 1 / (float)numClose; 
+		}
+		return seperation;
+	}
+
+
     public void setOriginalPath(List<Tile> tilePath) {
         List<Vector3> path = new List<Vector3>(tilePath.Count);
         foreach(Tile tile in tilePath) {
@@ -189,6 +225,8 @@ public class PathfindingScript : MonoBehaviour {
 		foreach(PathNode node in path.pathNodes) {
 			
 			newPath.Add (levelManager.levelGrid[node.tileY][node.tileX].position);
+
+
 		}
 		originalPath = newPath;
 	}
