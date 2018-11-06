@@ -5,8 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour {
 
-	public void StartGame()
+    private string sceneName;
+
+    private void Update()
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            RestartGame();
+        }
+        else if(Input.GetKeyDown(KeyCode.G))
+        {
+            SceneManager.LoadScene("GameOverScreen");
+        }
+    }
+
+    public void StartGame()
     {
         SceneManager.LoadScene("LevelOne");
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
