@@ -46,6 +46,7 @@ public class PathfindingScript : MonoBehaviour {
 	GameObject boombox;
 
 	GameObject[] otherPudgys;
+    Animator anim;
 
 	// Use this for initialization
 	void Awake () {
