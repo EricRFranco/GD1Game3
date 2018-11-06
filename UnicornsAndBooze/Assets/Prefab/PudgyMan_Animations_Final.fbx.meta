@@ -1,0 +1,218 @@
+fileFormatVersion: 2
+guid: 5840944bfd24f64479a44d5d38885b0a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Pudgy_Guy_Rigged:Ctrls
+    100002: Pudgy_Guy_Rigged:Geometry
+    100004: Pudgy_Guy_Rigged:Head_Grp
+    100006: Pudgy_Guy_Rigged:Headtip_JNT
+    100008: Pudgy_Guy_Rigged:IK_GRp
+    100010: Pudgy_Guy_Rigged:Joints_Grp
+    100012: Pudgy_Guy_Rigged:L_Elbow_JNT
+    100014: Pudgy_Guy_Rigged:L_Elbow_JNT_CTRL
+    100016: Pudgy_Guy_Rigged:L_Elbow_JNT_CTRL_GRP
+    100018: Pudgy_Guy_Rigged:L_Foot_Ctrl
+    100020: Pudgy_Guy_Rigged:L_Foot_Ctrl_grp
+    100022: Pudgy_Guy_Rigged:L_Foottip_JNT
+    100024: Pudgy_Guy_Rigged:L_Hand_JNT
+    100026: Pudgy_Guy_Rigged:L_Hip_JNT
+    100028: Pudgy_Guy_Rigged:L_Knee_JNT
+    100030: Pudgy_Guy_Rigged:L_Leg_IK
+    100032: Pudgy_Guy_Rigged:L_Shoulder_JNT
+    100034: Pudgy_Guy_Rigged:L_Shoulder_JNT_CTRL
+    100036: Pudgy_Guy_Rigged:L_Shoulder_JNT_CTRL_GRP1
+    100038: Pudgy_Guy_Rigged:Lower_Body_Ctrl
+    100040: Pudgy_Guy_Rigged:LowerBody_GRp
+    100042: Pudgy_Guy_Rigged:Lowerbody_JNT
+    100044: Pudgy_Guy_Rigged:Main_Ctrl
+    100046: Pudgy_Guy_Rigged:Neck_Ctrl
+    100048: Pudgy_Guy_Rigged:Neck_Ctrl_Grp
+    100050: Pudgy_Guy_Rigged:Neck_JNT
+    100052: Pudgy_Guy_Rigged:Pudgy_Guy_Model:Body1
+    100054: Pudgy_Guy_Rigged:Pudgy_Guy_Model:Head1
+    100056: Pudgy_Guy_Rigged:R_Elbow_JNT
+    100058: Pudgy_Guy_Rigged:R_Elbow_JNT_CTRL
+    100060: Pudgy_Guy_Rigged:R_Elbow_JNT_CTRL_GRP
+    100062: Pudgy_Guy_Rigged:R_Foot_Ctrl
+    100064: Pudgy_Guy_Rigged:R_Foot_CTRL_grp
+    100066: Pudgy_Guy_Rigged:R_Foottip_JNT
+    100068: Pudgy_Guy_Rigged:R_Hand_JNT
+    100070: Pudgy_Guy_Rigged:R_Hip_JNT
+    100072: Pudgy_Guy_Rigged:R_Knee_JNT
+    100074: Pudgy_Guy_Rigged:R_Leg_IK
+    100076: Pudgy_Guy_Rigged:R_Shoulder_JNT
+    100078: Pudgy_Guy_Rigged:R_Shoulder_JNT_CTRL
+    100080: Pudgy_Guy_Rigged:R_Shoulder_JNT_CTRL_GRP1
+    100082: Pudgy_Guy_Rigged:Root_Ctrl
+    100084: Pudgy_Guy_Rigged:Root_Ctrl_GRP
+    100086: Pudgy_Guy_Rigged:Root_JNT
+    100088: Pudgy_Guy_Rigged:Spine1_Ctrl
+    100090: Pudgy_Guy_Rigged:Spine1_CtrlGrp
+    100092: Pudgy_Guy_Rigged:Spine1_JNT
+    100094: Pudgy_Guy_Rigged:Spine2_Ctrl
+    100096: Pudgy_Guy_Rigged:Spine2_Ctrl 1
+    100098: Pudgy_Guy_Rigged:Spine2_JNT
+    100100: Pudgy_Guy_Rigged:UpperBody_Ctrl
+    100102: Pudgy_Guy_Rigged:UpperBody_Grp
+    100104: Pudgy_Guy_Rigged:Upperbody_JNT
+    100106: //RootNode
+    100108: Shirt_CTRl
+    100110: Shirt_Ctrl_Grp
+    100112: Shirt_Model:Shirt
+    400000: Pudgy_Guy_Rigged:Ctrls
+    400002: Pudgy_Guy_Rigged:Geometry
+    400004: Pudgy_Guy_Rigged:Head_Grp
+    400006: Pudgy_Guy_Rigged:Headtip_JNT
+    400008: Pudgy_Guy_Rigged:IK_GRp
+    400010: Pudgy_Guy_Rigged:Joints_Grp
+    400012: Pudgy_Guy_Rigged:L_Elbow_JNT
+    400014: Pudgy_Guy_Rigged:L_Elbow_JNT_CTRL
+    400016: Pudgy_Guy_Rigged:L_Elbow_JNT_CTRL_GRP
+    400018: Pudgy_Guy_Rigged:L_Foot_Ctrl
+    400020: Pudgy_Guy_Rigged:L_Foot_Ctrl_grp
+    400022: Pudgy_Guy_Rigged:L_Foottip_JNT
+    400024: Pudgy_Guy_Rigged:L_Hand_JNT
+    400026: Pudgy_Guy_Rigged:L_Hip_JNT
+    400028: Pudgy_Guy_Rigged:L_Knee_JNT
+    400030: Pudgy_Guy_Rigged:L_Leg_IK
+    400032: Pudgy_Guy_Rigged:L_Shoulder_JNT
+    400034: Pudgy_Guy_Rigged:L_Shoulder_JNT_CTRL
+    400036: Pudgy_Guy_Rigged:L_Shoulder_JNT_CTRL_GRP1
+    400038: Pudgy_Guy_Rigged:Lower_Body_Ctrl
+    400040: Pudgy_Guy_Rigged:LowerBody_GRp
+    400042: Pudgy_Guy_Rigged:Lowerbody_JNT
+    400044: Pudgy_Guy_Rigged:Main_Ctrl
+    400046: Pudgy_Guy_Rigged:Neck_Ctrl
+    400048: Pudgy_Guy_Rigged:Neck_Ctrl_Grp
+    400050: Pudgy_Guy_Rigged:Neck_JNT
+    400052: Pudgy_Guy_Rigged:Pudgy_Guy_Model:Body1
+    400054: Pudgy_Guy_Rigged:Pudgy_Guy_Model:Head1
+    400056: Pudgy_Guy_Rigged:R_Elbow_JNT
+    400058: Pudgy_Guy_Rigged:R_Elbow_JNT_CTRL
+    400060: Pudgy_Guy_Rigged:R_Elbow_JNT_CTRL_GRP
+    400062: Pudgy_Guy_Rigged:R_Foot_Ctrl
+    400064: Pudgy_Guy_Rigged:R_Foot_CTRL_grp
+    400066: Pudgy_Guy_Rigged:R_Foottip_JNT
+    400068: Pudgy_Guy_Rigged:R_Hand_JNT
+    400070: Pudgy_Guy_Rigged:R_Hip_JNT
+    400072: Pudgy_Guy_Rigged:R_Knee_JNT
+    400074: Pudgy_Guy_Rigged:R_Leg_IK
+    400076: Pudgy_Guy_Rigged:R_Shoulder_JNT
+    400078: Pudgy_Guy_Rigged:R_Shoulder_JNT_CTRL
+    400080: Pudgy_Guy_Rigged:R_Shoulder_JNT_CTRL_GRP1
+    400082: Pudgy_Guy_Rigged:Root_Ctrl
+    400084: Pudgy_Guy_Rigged:Root_Ctrl_GRP
+    400086: Pudgy_Guy_Rigged:Root_JNT
+    400088: Pudgy_Guy_Rigged:Spine1_Ctrl
+    400090: Pudgy_Guy_Rigged:Spine1_CtrlGrp
+    400092: Pudgy_Guy_Rigged:Spine1_JNT
+    400094: Pudgy_Guy_Rigged:Spine2_Ctrl
+    400096: Pudgy_Guy_Rigged:Spine2_Ctrl 1
+    400098: Pudgy_Guy_Rigged:Spine2_JNT
+    400100: Pudgy_Guy_Rigged:UpperBody_Ctrl
+    400102: Pudgy_Guy_Rigged:UpperBody_Grp
+    400104: Pudgy_Guy_Rigged:Upperbody_JNT
+    400106: //RootNode
+    400108: Shirt_CTRl
+    400110: Shirt_Ctrl_Grp
+    400112: Shirt_Model:Shirt
+    2100000: Pudgy_Guy_Rigged_Pudgy_Guy_Model_lambert2
+    2100002: lambert1
+    2300000: Shirt_Model:Shirt
+    3300000: Shirt_Model:Shirt
+    4300000: Pudgy_Guy_Rigged:Pudgy_Guy_Model:Head1
+    4300002: Pudgy_Guy_Rigged:Pudgy_Guy_Model:Body1
+    4300004: Shirt_Model:Shirt
+    7400000: TPose
+    7400002: Walk_Cycle
+    7400004: Walk_While_Carrying
+    7400006: Pick Up
+    7400008: Drop
+    7400010: Dance
+    9500000: //RootNode
+    13700000: Pudgy_Guy_Rigged:Pudgy_Guy_Model:Body1
+    13700002: Pudgy_Guy_Rigged:Pudgy_Guy_Model:Head1
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
