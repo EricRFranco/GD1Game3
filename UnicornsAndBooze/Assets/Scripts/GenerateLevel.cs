@@ -28,10 +28,15 @@ public class GenerateLevel : MonoBehaviour {
 		float wallHalfHeightInMeters = wallBounds.extents.y * wallPrefab.transform.localScale.y;
 		float wallWidthInMeters = wallBounds.extents.z * 2f * wallPrefab.transform.localScale.z;
 		Bounds floorBounds = floorPrefab.GetComponent<MeshFilter> ().sharedMesh.bounds;
-		float floorLengthInMeters = floorBounds.extents.x * 2f * floorPrefab.transform.localScale.x;
-		float floorWidthInMeters = floorBounds.extents.z * 2f * floorPrefab.transform.localScale.z;
+		float floorLengthInMeters = wallLengthInMeters * levelRows[0].Trim().Length;
+		float floorWidthInMeters = wallWidthInMeters * (levelRows.Length - 1);
+		//float floorLengthInMeters = floorBounds.extents.x * 2f * floorPrefab.transform.localScale.x;
+		//float floorWidthInMeters = floorBounds.extents.z * 2f * floorPrefab.transform.localScale.z;
 
 		GameObject floor = Instantiate (floorPrefab);
+
+		floor.transform.localScale = new Vector3 (floorLengthInMeters / (floorBounds.extents.x * 2f), 1f, floorWidthInMeters / (floorBounds.extents.z * 2f));
+
 		floor.transform.position = levelCenter;
 
 		float zOffset = floorWidthInMeters / (float)(levelRows.Length - 1);
@@ -39,11 +44,11 @@ public class GenerateLevel : MonoBehaviour {
 		levelManager.levelGrid = new Tile[levelRows.Length - 1][];
 
 		Vector3 topLeftCorner = new Vector3 (levelCenter.x - (floorLengthInMeters / 2f), levelCenter.y + wallHalfHeightInMeters, levelCenter.z - (floorWidthInMeters / 2));
-
+	
 		for (int i = 0; i < levelRows.Length - 1; ++i) {
 			levelRows [i] = levelRows [i].Trim ();
 			float xOffset = floorLengthInMeters / (float)(levelRows [i].Length);
-
+			//print (xOffset);
 			levelManager.levelGrid [i] = new Tile[levelRows [i].Length];
 
 			for(int j = 0; j < levelRows[i].Length; ++j) {
