@@ -112,7 +112,7 @@ MonoBehaviour:
   wallPrefab: {fileID: 1850943565351612, guid: 4926bba82e1700c4ca417ae99bdb94dd, type: 2}
   floorPrefab: {fileID: 1735847954989570, guid: 4cf7f1ec17bbe104bb4e2fa964a5f6a0,
     type: 2}
-  shirtBinPrefab: {fileID: 1061510163154800, guid: 4c45c63fa75a98344a57b6fcd417a30a,
+  shirtBinPrefab: {fileID: 1370865061057628, guid: 7eea516e8b93ce44e885c9354ee5b1e8,
     type: 2}
   boomboxPrefab: {fileID: 1717455763223648, guid: 8c0fda40c12488143bd88482ac37b667,
     type: 2}

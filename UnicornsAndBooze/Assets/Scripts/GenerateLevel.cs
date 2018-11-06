@@ -12,6 +12,10 @@ public class GenerateLevel : MonoBehaviour {
 
 	public GameObject boomboxPrefab;
 
+	public GameObject doorPrefab;
+
+	public GameObject playerPrefab;
+
 	public Vector3 levelCenter;
 
 	string[] levelRows;
@@ -57,23 +61,36 @@ public class GenerateLevel : MonoBehaviour {
 				Tile tile = new Tile ();
 				tile.position = placePosition;
 				tile.position.y = 0.5f;
-				if (levelRows [i] [j] == 'W') {
-					GameObject wall = Instantiate (wallPrefab);
-					wall.transform.position = placePosition;
+				tile.isWall = false;
+				GameObject instance = null;
+				switch (levelRows [i] [j]) {
+				case 'W':
+					instance = Instantiate (wallPrefab);
 					tile.isWall = true;
-				} else {
-					
-					tile.isWall = false;
+					break;
+				case 'S':
+					instance = Instantiate (shirtBinPrefab);
+					break;
+				case 'B':
+					instance = Instantiate (boomboxPrefab);
+					break;
+				case 'U':
+					instance = Instantiate (doorPrefab);
+					instance.transform.Rotate (0, 90f, 0f);
+					break;
+				case 'D':
+					instance = Instantiate (doorPrefab);
+					break;
+				case 'P':
+					instance = Instantiate (playerPrefab);
+					break;
+				
+				}
+				if (instance != null) {
+					instance.transform.position = placePosition;
 				}
 
-				if (levelRows [i] [j] == 'S') {
-					GameObject shirtBin = Instantiate (shirtBinPrefab);
-					shirtBin.transform.position = placePosition;
-				} else if (levelRows [i] [j] == 'B') {
-					GameObject boombox = Instantiate (boomboxPrefab);
-					boombox.transform.position = placePosition;
-				}
-			
+
 
 				levelManager.levelGrid [i] [j] = tile;
 			}
