@@ -56,13 +56,17 @@ public class PathfindingScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 		if (currentPath == null) {
-			//currentPath = levelManager.PathFind (transform.position, goalPoint);
-			//currentIndexOnPath = 0;
+			currentIndexOnPath = 0;
 			currentPath = originalPath;
 		}
-		//print (currentIndexOnPath + " " + currentPath[0]);
+
+		if (boombox.GetComponent<BoomBox> ().IsPlaying && currentState != State.GOINGTODANCEFLOOR && currentState != State.DANCING) {
+			currentState = State.GOINGTODANCEFLOOR;
+			currentPath = levelManager.PathFind (transform.position, boombox.transform.position);
+			currentIndexOnPath = 0;
+		}
+
 		if (Vector3.Distance (transform.position, currentPath[currentPath.Count - 1]) > closeEnoughToPointDistance) {
 			if (Vector3.Distance (transform.position, currentPath [currentIndexOnPath]) <= closeEnoughToPointDistance) {
 				currentIndexOnPath++;
@@ -80,8 +84,7 @@ public class PathfindingScript : MonoBehaviour {
 			transform.eulerAngles = new Vector3 (0, Mathf.Rad2Deg * angle, 0);
 
 		} else {
-			/*rbody.velocity = Vector3.zero;
-			rbody.angularVelocity = Vector3.zero;*/
+			
 			switch (currentState) {
 			case(State.ONSETPATH):
 				currentPath.Reverse ();
@@ -92,12 +95,13 @@ public class PathfindingScript : MonoBehaviour {
 				currentPath = originalPath;
 				currentState = State.ONSETPATH;
 				break;
+			case(State.GOINGTODANCEFLOOR):
+				currentState = State.DANCING;
+				break;
 			default:
+				rbody.velocity = Vector2.zero;
 				break;
 			}
-
-
-
 		}
 		UpdateVisionCone ();
 	}
