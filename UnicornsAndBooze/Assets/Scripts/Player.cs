@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
     private bool canExit = false;
 
     private BoomBox boomBox;
+    private SceneChanger sceneChanger;
     //private bool rotating = false;
 
     public int ShirtCount
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        sceneChanger = GameObject.Find("SceneManager").GetComponent<SceneChanger>();
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
 	}
@@ -123,8 +125,7 @@ public class Player : MonoBehaviour {
          
         if(other.gameObject.tag == "Door" && canExit)
         {
-            //SceneManager.LoadScene(/*scene name here*/);
-            Debug.Log("Door opened");
+            sceneChanger.NextLevel();
         }
     }
 
