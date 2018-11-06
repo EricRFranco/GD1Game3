@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Shirt
   - Door
+  - ChillPlayer
   layers:
   - Default
   - TransparentFX
