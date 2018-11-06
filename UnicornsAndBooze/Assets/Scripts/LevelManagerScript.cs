@@ -123,8 +123,12 @@ public class LevelManagerScript : MonoBehaviour {
 		List<Vector3> path = BFS(graph, startTilePosition, endTilePosition);
 
 		path [0] = startPoint;
-		path [path.Count - 1] = endPoint;
 
+		if (path.Count == 1) {
+			path.Add (endPoint);
+		} else {
+			path [path.Count - 1] = endPoint;
+		}
         return path;
     }
 

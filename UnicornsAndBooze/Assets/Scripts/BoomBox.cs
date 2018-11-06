@@ -5,20 +5,30 @@ using UnityEngine;
 public class BoomBox : MonoBehaviour {
 
     private bool isPlaying = false;
+    [SerializeField]
+    private AudioSource chillTrack;
 
     public bool IsPlaying
     {
         get { return isPlaying; }
         set { isPlaying = value; }
     }
+
+	void Awake(){
+		chillTrack = GameObject.FindGameObjectWithTag ("ChillPlayer").GetComponent<AudioSource> ();
+	}
+
 	// Use this for initialization
 	void Start () {
-       
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKeyDown (KeyCode.F)) {
+			ToggleBoombox ();
+
+		}
 	}
 
     public void ToggleBoombox()
@@ -26,11 +36,13 @@ public class BoomBox : MonoBehaviour {
         if (!isPlaying)
         {
             GetComponent<AudioSource>().Play();
+            chillTrack.Stop();
             isPlaying = true;
         }  
         else
         {
             GetComponent<AudioSource>().Stop();
+            chillTrack.Play();
             isPlaying = false;
         }
             

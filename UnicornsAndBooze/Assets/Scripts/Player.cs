@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -12,17 +15,30 @@ public class Player : MonoBehaviour {
     private Transform spawnPoint;
     [SerializeField]
     private float angularSpeed;
+    [SerializeField]
+    private ShirtTextUI shirtText;
+    [SerializeField]
+    private int maxShirtCount = 0;
 
     private Rigidbody rb;
     private Animator anim;
     private bool shirtAvailable = false;
     private int shirtCount = 0;
+    private bool canExit = false;
 
     private BoomBox boomBox;
+    private SceneChanger sceneChanger;
     //private bool rotating = false;
+
+    public int ShirtCount
+    {
+        get { return shirtCount; }
+        set { shirtCount = value; }
+    }
 
 	// Use this for initialization
 	void Start () {
+        sceneChanger = GameObject.Find("SceneManager").GetComponent<SceneChanger>();
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
 	}
@@ -37,6 +53,7 @@ public class Player : MonoBehaviour {
             anim.Play("Put Shirt Down");
             StartCoroutine(PlaceShirt());
             shirtCount--;
+            shirtText.UpdateText(shirtCount);
         }
         anim.SetFloat("velocity", rb.velocity.z);
         anim.SetInteger("shirts", shirtCount);
@@ -75,7 +92,8 @@ public class Player : MonoBehaviour {
     {
         if(shirtAvailable && Input.GetKeyDown(KeyCode.E))
         {
-            shirtCount++;
+            shirtCount = Math.Min(maxShirtCount, shirtCount + 1);
+            shirtText.UpdateText(shirtCount);
         }
     }
 
@@ -85,6 +103,7 @@ public class Player : MonoBehaviour {
         {
             boomBox.ToggleBoombox();
             anim.SetTrigger("interact");
+            canExit = !canExit;
         }
     }
 
@@ -103,7 +122,11 @@ public class Player : MonoBehaviour {
         { 
             boomBox = other.gameObject.GetComponent<BoomBox>();
         }
-            
+         
+        if(other.gameObject.tag == "Door" && canExit)
+        {
+            sceneChanger.NextLevel();
+        }
     }
 
     private void OnTriggerExit(Collider other)
