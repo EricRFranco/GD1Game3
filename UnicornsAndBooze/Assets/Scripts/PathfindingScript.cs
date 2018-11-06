@@ -121,30 +121,9 @@ public class PathfindingScript : MonoBehaviour {
 		} else {
 			rbody.velocity = Vector2.zero;
 		}
-        //AnimationCheck();
+        
 	}
 
-    /*void AnimationCheck()
-    {
-        switch (currentState)
-        {
-            case (State.DANCING):
-                anim.SetBool("dancing", true);
-                anim.SetBool("walking", false);
-                anim.SetBool("carrying", false);
-                break;
-            case (State.DELIVERINGSHIRT):
-                anim.SetBool("dancing", false);
-                anim.SetBool("walking", false);
-                anim.SetBool("carrying", true);
-                break;
-            default:
-                anim.SetBool("dancing", false);
-                anim.SetBool("walking", true);
-                anim.SetBool("carrying", false);
-                break;
-        }
-    }*/
 
 	Vector3 DynamicSeek(Vector3 position, Vector3 target){
 		Vector3 linearAcceleration = target - position;
