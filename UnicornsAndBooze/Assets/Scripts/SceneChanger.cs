@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour {
 
-    private string sceneName;
+    [SerializeField]    //Serialized for debugging purposes
+    private int sceneIndex = 1;
 
     private void Update()
     {
-        sceneName = SceneManager.GetActiveScene().name;
+            
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            RestartGame();
+            GameOver();
         }
         else if(Input.GetKeyDown(KeyCode.G))
         {
@@ -22,11 +23,26 @@ public class SceneChanger : MonoBehaviour {
 
     public void StartGame()
     {
+        DontDestroyOnLoad(this.gameObject);
         SceneManager.LoadScene("LevelOne");
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(sceneName);
+        DontDestroyOnLoad(this.gameObject);
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void NextLevel()
+    {
+        DontDestroyOnLoad(this.gameObject);
+        sceneIndex++;
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void GameOver()
+    {
+        DontDestroyOnLoad(this.gameObject);
+        SceneManager.LoadScene("GameOverScreen");
     }
 }
