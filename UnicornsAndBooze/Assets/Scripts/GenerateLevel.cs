@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,8 +30,6 @@ public class GenerateLevel : MonoBehaviour {
 		Bounds floorBounds = floorPrefab.GetComponent<MeshFilter> ().sharedMesh.bounds;
 		float floorLengthInMeters = wallLengthInMeters * levelRows[0].Trim().Length;
 		float floorWidthInMeters = wallWidthInMeters * (levelRows.Length - 1);
-		//float floorLengthInMeters = floorBounds.extents.x * 2f * floorPrefab.transform.localScale.x;
-		//float floorWidthInMeters = floorBounds.extents.z * 2f * floorPrefab.transform.localScale.z;
 
 		GameObject floor = Instantiate (floorPrefab);
 
