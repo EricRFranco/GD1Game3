@@ -46,6 +46,7 @@ public class PathfindingScript : MonoBehaviour {
 	GameObject boombox;
 
 	GameObject[] otherPudgys;
+    Animator anim;
 
 	// Use this for initialization
 	void Awake () {
@@ -57,6 +58,7 @@ public class PathfindingScript : MonoBehaviour {
 		visionCone.GetComponent<MeshRenderer> ().material = visionMaterial;
 		currentState = State.ONSETPATH;
 		boombox = GameObject.FindGameObjectWithTag ("Boombox");
+        anim = this.gameObject.GetComponent<Animator>();
 	}
 
 
@@ -119,8 +121,9 @@ public class PathfindingScript : MonoBehaviour {
 		} else {
 			rbody.velocity = Vector2.zero;
 		}
+        
 	}
-	
+
 
 	Vector3 DynamicSeek(Vector3 position, Vector3 target){
 		Vector3 linearAcceleration = target - position;
