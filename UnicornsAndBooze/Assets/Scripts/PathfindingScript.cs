@@ -58,6 +58,7 @@ public class PathfindingScript : MonoBehaviour {
 		visionCone.GetComponent<MeshRenderer> ().material = visionMaterial;
 		currentState = State.ONSETPATH;
 		boombox = GameObject.FindGameObjectWithTag ("Boombox");
+        anim = this.gameObject.GetComponent<Animator>();
 	}
 
 
