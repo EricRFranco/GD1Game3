@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeEnoughToPointDistance: 0.3
+  closeEnoughToBoomBoxDistance: 1.12
   maxAcceleration: 0.4
   maxVelocity: 1.1
   slowRadius: 0.2
