@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ceadede8ce9b94cb95ccb9df716423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeEnoughToPointDistance: 0.19
+  closeEnoughToPointDistance: 0.3
   maxAcceleration: 0.4
   maxVelocity: 1.1
   slowRadius: 0.2

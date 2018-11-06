@@ -15,15 +15,15 @@ public class BoomBox : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-       
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.F)) {
-			ToggleBoombox ();
+		//if (Input.GetKeyDown (KeyCode.F)) {
+	//		ToggleBoombox ();
 
-		}
+//		}
 	}
 
     public void ToggleBoombox()
