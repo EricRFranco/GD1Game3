@@ -195,7 +195,7 @@ public class PathfindingScript : MonoBehaviour {
 			Debug.DrawRay (rayCastStart, (hit ? raycastHitData.distance : rayCastRange) * dir);
 			if (hit && raycastHitData.collider.tag == "Player") {
 				
-				//sceneChanger.GameOver ();
+				sceneChanger.GameOver ();
 				//print ("hit");
 			} else if (hit && raycastHitData.collider.tag == "Shirt" && currentState != State.GOINGTOSHIRT) {
 				currentState = State.GOINGTOSHIRT;
