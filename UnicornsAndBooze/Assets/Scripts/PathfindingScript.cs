@@ -42,14 +42,17 @@ public class PathfindingScript : MonoBehaviour {
 
 	int startingIndexWhenReturningToPath;
 
+	SceneChanger sceneChanger;
+
 
 	GameObject boombox;
 
 	GameObject[] otherPudgys;
+    Animator anim;
 
 	// Use this for initialization
 	void Awake () {
-		
+		sceneChanger = GameObject.Find("SceneManager").GetComponent<SceneChanger>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManagerScript>();
 		rbody = GetComponent<Rigidbody> ();
 		visionCone = new GameObject("vision", typeof(MeshFilter), typeof(MeshRenderer));
@@ -57,6 +60,7 @@ public class PathfindingScript : MonoBehaviour {
 		visionCone.GetComponent<MeshRenderer> ().material = visionMaterial;
 		currentState = State.ONSETPATH;
 		boombox = GameObject.FindGameObjectWithTag ("Boombox");
+        anim = this.gameObject.GetComponent<Animator>();
 	}
 
 
@@ -70,11 +74,15 @@ public class PathfindingScript : MonoBehaviour {
 			currentIndexOnPath = 0;
 			currentPath = originalPath;
 		}
+
 		if (currentState != State.DANCING) {
 			if (boombox.GetComponent<BoomBox> ().IsPlaying && currentState != State.GOINGTODANCEFLOOR && currentState != State.DANCING) {
 				currentState = State.GOINGTODANCEFLOOR;
-				currentPath = levelManager.PathFind (transform.position, boombox.transform.parent.position);
+				Vector3 targetPoint = boombox.transform.parent.position;
+				targetPoint.y = transform.position.y;
+				currentPath = levelManager.PathFind (transform.position, targetPoint);
 				currentIndexOnPath = 0;
+				Destroy (visionCone);
 			}
 
 			if ((Vector3.Distance (transform.position, currentPath [currentPath.Count - 1]) > closeEnoughToPointDistance && currentState != State.GOINGTODANCEFLOOR)
@@ -108,19 +116,22 @@ public class PathfindingScript : MonoBehaviour {
 					break;
 				case(State.GOINGTODANCEFLOOR):
 					currentState = State.DANCING;
-					Destroy (visionCone);
 					break;
 				default:
 					rbody.velocity = Vector2.zero;
 					break;
 				}
 			}
-			UpdateVisionCone ();
+			if (currentState != State.GOINGTODANCEFLOOR && currentState != State.DANCING) {
+				
+				UpdateVisionCone ();
+			}
 		} else {
 			rbody.velocity = Vector2.zero;
 		}
+        
 	}
-	
+
 
 	Vector3 DynamicSeek(Vector3 position, Vector3 target){
 		Vector3 linearAcceleration = target - position;
@@ -168,7 +179,8 @@ public class PathfindingScript : MonoBehaviour {
 
 			Debug.DrawRay (rayCastStart, (hit ? raycastHitData.distance : rayCastRange) * dir);
 			if (hit && raycastHitData.collider.tag == "Player") {
-				//print ("Game Over");
+				
+				sceneChanger.GameOver ();
 			}
 			vertices [i + 1] = rayCastStart + (hit ? raycastHitData.distance : rayCastRange) * dir;
 			uvs [i + 1] = Vector2.zero;
@@ -242,10 +254,10 @@ public class PathfindingScript : MonoBehaviour {
 		case State.ONSETPATH:
 		case State.RETURNINGTOPATH:
 			if (collider.tag == "Shirt") {
-				Destroy (collider.gameObject);
+				Destroy (collider.transform.parent.gameObject);
 				currentState = State.DELIVERINGSHIRT;
 				GameObject shirtBinTarget = FindClosestShirtBin();
-				currentPath = levelManager.PathFind (transform.position, shirtBinTarget.transform.position);
+				currentPath = levelManager.PathFind (transform.position, new Vector3(shirtBinTarget.transform.position.x, transform.position.y, shirtBinTarget.transform.position.z));
 				currentIndexOnPath = 0;
 			}
 				break;
