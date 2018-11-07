@@ -749,6 +749,12 @@ Prefab:
       value: 
       objectReference: {fileID: 1316165232407962, guid: b94168e5fd9612447a11b7be2d9d9e4e,
         type: 2}
+    - target: {fileID: 114895325188034690, guid: 3318a5970b8511b4c87f2bde05165aff,
+        type: 2}
+      propertyPath: shirtBinPrefab
+      value: 
+      objectReference: {fileID: 1980151194138486, guid: ee0aceeb803f5ac4e82f370bcc648305,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3318a5970b8511b4c87f2bde05165aff, type: 2}
   m_IsPrefabAsset: 0
