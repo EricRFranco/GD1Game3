@@ -11,6 +11,7 @@ public enum State{
 	DANCING,
 	PICKINGUPSHIRT,
 	PLACINGSHIRT,
+	GOINGTOSHIRT,
 }
 
 public class PathfindingScript : MonoBehaviour {
@@ -48,11 +49,16 @@ public class PathfindingScript : MonoBehaviour {
 
 
 	GameObject boombox;
+	GameObject targetShirt;
 
 	GameObject[] otherPudgys;
     Animator anim;
 
 	float animationStartTime;
+
+    public AudioSource audio;
+    public AudioClip shirtup;
+    public AudioClip shirtdown;
 
 	// Use this for initialization
 	void Awake () {
@@ -66,7 +72,8 @@ public class PathfindingScript : MonoBehaviour {
 		
         anim = this.gameObject.GetComponent<Animator>();
 		anim.Play ("Walking");
-        anim.SetBool("walking", true);
+		anim.SetBool("walking", true);
+		audio = GetComponent<AudioSource>();
 	}
 
 
@@ -132,6 +139,8 @@ public class PathfindingScript : MonoBehaviour {
                     anim.SetBool("walking", false);
                     anim.SetBool("carrying", false);
 					currentState = State.DANCING;
+					break;
+				case(State.GOINGTOSHIRT):
 					break;
 				default:
 					rbody.velocity = Vector2.zero;
@@ -200,6 +209,13 @@ public class PathfindingScript : MonoBehaviour {
 			if (hit && raycastHitData.collider.tag == "Player") {
 				
 				sceneChanger.GameOver ();
+				//print ("hit");
+			} else if (hit && raycastHitData.collider.tag == "Shirt" && currentState != State.GOINGTOSHIRT) {
+				currentState = State.GOINGTOSHIRT;
+				currentIndexOnPath = 0;
+				Vector3 target = raycastHitData.collider.transform.position;
+				currentPath = levelManager.PathFind (transform.position, new Vector3 (target.x, transform.position.y, target.z));
+				//targetShirt = raycastHitData.collider.gameObject;
 			}
 			vertices [i + 1] = rayCastStart + (hit ? raycastHitData.distance : rayCastRange) * dir;
 			uvs [i + 1] = Vector2.zero;
@@ -272,9 +288,12 @@ public class PathfindingScript : MonoBehaviour {
 		
 		switch (currentState) {
 
+		case State.GOINGTOSHIRT:
 		case State.ONSETPATH:
 		case State.RETURNINGTOPATH:
 			if (collider.tag == "Shirt") {
+                audio.clip = shirtup;
+                audio.Play();
 				Destroy (collider.transform.parent.gameObject);
 				currentState = State.DELIVERINGSHIRT;
                 anim.SetBool("dropping", true);
@@ -286,6 +305,8 @@ public class PathfindingScript : MonoBehaviour {
 				break;
 		case State.DELIVERINGSHIRT:
 			if (collider.tag == "ShirtBin") {
+                audio.clip = shirtdown;
+                audio.Play();
 				currentState = State.RETURNINGTOPATH;
                     anim.SetBool("carrying",false);
                     anim.SetBool("walking", true);
