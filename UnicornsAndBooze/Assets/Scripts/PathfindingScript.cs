@@ -72,8 +72,9 @@ public class PathfindingScript : MonoBehaviour {
 		
         anim = this.gameObject.GetComponent<Animator>();
 		anim.Play ("Walking");
-
-        audio = GetComponent<AudioSource>();
+		anim.SetBool("walking", true);
+        anim.SetBool("walking", false);
+		audio = GetComponent<AudioSource>();
 	}
 
 
@@ -93,6 +94,7 @@ public class PathfindingScript : MonoBehaviour {
 
 		if (currentState != State.DANCING) {
 			if (boombox.GetComponent<BoomBox> ().IsPlaying && currentState != State.GOINGTODANCEFLOOR && currentState != State.DANCING) {
+                anim.SetBool("walking", true);
 				currentState = State.GOINGTODANCEFLOOR;
 				Vector3 targetPoint = boombox.transform.parent.position;
 				targetPoint.y = transform.position.y;
@@ -132,6 +134,7 @@ public class PathfindingScript : MonoBehaviour {
 					break;
 				case(State.GOINGTODANCEFLOOR):
 					currentState = State.DANCING;
+                    anim.SetBool("dancing", true);
 					break;
 				case(State.GOINGTOSHIRT):
 					break;
@@ -289,21 +292,23 @@ public class PathfindingScript : MonoBehaviour {
                 audio.Play();
 				Destroy (collider.transform.parent.gameObject);
 				currentState = State.DELIVERINGSHIRT;
+                anim.SetBool("dropping", false);
+                anim.SetBool("carrying", true);
 				GameObject shirtBinTarget = FindClosestShirtBin();
 				currentPath = levelManager.PathFind (transform.position, new Vector3(shirtBinTarget.transform.position.x, transform.position.y, shirtBinTarget.transform.position.z));
 				currentIndexOnPath = 0;
-				anim.Play ("CarryShirt");
 			}
 				break;
 		case State.DELIVERINGSHIRT:
 			if (collider.tag == "ShirtBin") {
                 audio.clip = shirtdown;
                 audio.Play();
+                anim.SetBool("dropping", true);
+                anim.SetBool("carrying", false);
 				currentState = State.RETURNINGTOPATH;
-				Vector3 returnPoint = FindClosestPointOnOriginalPath ();
+                Vector3 returnPoint = FindClosestPointOnOriginalPath ();
 				currentPath = levelManager.PathFind (transform.position, returnPoint);
 				currentIndexOnPath = 0;
-				anim.Play ("Walking");
 			}
 			break;
 		default:
