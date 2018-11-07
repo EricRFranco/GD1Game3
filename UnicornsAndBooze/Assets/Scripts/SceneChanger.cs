@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour {
 
     [SerializeField]    //Serialized for debugging purposes
-    private int sceneIndex = 1;
+    private int sceneIndex = 2;
 
     private void Update()
     {
@@ -42,6 +42,7 @@ public class SceneChanger : MonoBehaviour {
     {
         DontDestroyOnLoad(this.gameObject);
         sceneIndex++;
+        Debug.Log(sceneIndex);
         SceneManager.LoadScene(sceneIndex);
     }
 
