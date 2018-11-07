@@ -216,11 +216,13 @@ public class PathfindingScript : MonoBehaviour {
 				
 				sceneChanger.GameOver ();
 				//print ("hit");
-			} else if (hit && raycastHitData.collider.tag == "Shirt" && currentState != State.GOINGTOSHIRT) {
+			} else if (hit && raycastHitData.collider.tag == "Shirt" && currentState != State.GOINGTOSHIRT && currentState != State.DELIVERINGSHIRT && currentState != State.PICKINGUPSHIRT
+				&& currentState != State.PLACINGSHIRT) {
 				currentState = State.GOINGTOSHIRT;
 				currentIndexOnPath = 0;
 				Vector3 target = raycastHitData.collider.transform.position;
 				currentPath = levelManager.PathFind (transform.position, new Vector3 (target.x, transform.position.y, target.z));
+
 				//targetShirt = raycastHitData.collider.gameObject;
 			}
 			vertices [i + 1] = rayCastStart + (hit ? raycastHitData.distance : rayCastRange) * dir;
@@ -309,6 +311,7 @@ public class PathfindingScript : MonoBehaviour {
 				GameObject shirtBinTarget = FindClosestShirtBin();
 				currentPath = levelManager.PathFind (transform.position, new Vector3(shirtBinTarget.transform.position.x, transform.position.y, shirtBinTarget.transform.position.z));
 				currentIndexOnPath = 0;
+			
 
 			}
 				break;
