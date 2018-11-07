@@ -366,5 +366,6 @@ public class PathfindingScript : MonoBehaviour {
 		}
 		return Vector3.zero;
 	}
+		
 
 }
