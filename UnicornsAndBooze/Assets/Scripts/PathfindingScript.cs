@@ -92,7 +92,7 @@ public class PathfindingScript : MonoBehaviour {
           
 		}
 
-		if (currentState != State.DANCING) {
+		if (!(currentState == State.DANCING || currentState == State.PICKINGUPSHIRT || currentState == State.PLACINGSHIRT)) {
 			if (boombox.GetComponent<BoomBox> ().IsPlaying && currentState != State.GOINGTODANCEFLOOR && currentState != State.DANCING) {
                 anim.SetBool("walking", true);
 				currentState = State.GOINGTODANCEFLOOR;
@@ -150,9 +150,19 @@ public class PathfindingScript : MonoBehaviour {
 			anim.speed = rbody.velocity.magnitude / maxVelocity;
 		} else {
 			rbody.velocity = Vector2.zero;
+			if (currentState == State.PICKINGUPSHIRT || currentState == State.PLACINGSHIRT) {
+				UpdateVisionCone ();
+			}
+			if (currentState == State.PICKINGUPSHIRT && animationStartTime + 1.208f < Time.time) {
+				currentState = State.DELIVERINGSHIRT;
+			}
+			if (currentState == State.PLACINGSHIRT && animationStartTime + 0.292f < Time.time) {
+				currentState = State.RETURNINGTOPATH;
+			}
+				
 		}
 
-
+	
         
 	}
 
@@ -206,11 +216,13 @@ public class PathfindingScript : MonoBehaviour {
 				
 				sceneChanger.GameOver ();
 				//print ("hit");
-			} else if (hit && raycastHitData.collider.tag == "Shirt" && currentState != State.GOINGTOSHIRT) {
+			} else if (hit && raycastHitData.collider.tag == "Shirt" && currentState != State.GOINGTOSHIRT && currentState != State.DELIVERINGSHIRT && currentState != State.PICKINGUPSHIRT
+				&& currentState != State.PLACINGSHIRT) {
 				currentState = State.GOINGTOSHIRT;
 				currentIndexOnPath = 0;
 				Vector3 target = raycastHitData.collider.transform.position;
 				currentPath = levelManager.PathFind (transform.position, new Vector3 (target.x, transform.position.y, target.z));
+
 				//targetShirt = raycastHitData.collider.gameObject;
 			}
 			vertices [i + 1] = rayCastStart + (hit ? raycastHitData.distance : rayCastRange) * dir;
@@ -291,12 +303,16 @@ public class PathfindingScript : MonoBehaviour {
                 audio.clip = shirtup;
                 audio.Play();
 				Destroy (collider.transform.parent.gameObject);
-				currentState = State.DELIVERINGSHIRT;
+				currentState = State.PICKINGUPSHIRT;
+				animationStartTime = Time.time;
                 anim.SetBool("dropping", false);
                 anim.SetBool("carrying", true);
+				collider.gameObject.layer = 2;
 				GameObject shirtBinTarget = FindClosestShirtBin();
 				currentPath = levelManager.PathFind (transform.position, new Vector3(shirtBinTarget.transform.position.x, transform.position.y, shirtBinTarget.transform.position.z));
 				currentIndexOnPath = 0;
+			
+
 			}
 				break;
 		case State.DELIVERINGSHIRT:
@@ -305,7 +321,8 @@ public class PathfindingScript : MonoBehaviour {
                 audio.Play();
                 anim.SetBool("dropping", true);
                 anim.SetBool("carrying", false);
-				currentState = State.RETURNINGTOPATH;
+				currentState = State.PLACINGSHIRT;
+				animationStartTime = Time.time;
                 Vector3 returnPoint = FindClosestPointOnOriginalPath ();
 				currentPath = levelManager.PathFind (transform.position, returnPoint);
 				currentIndexOnPath = 0;
@@ -352,5 +369,6 @@ public class PathfindingScript : MonoBehaviour {
 		}
 		return Vector3.zero;
 	}
+		
 
 }

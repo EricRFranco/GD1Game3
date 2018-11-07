@@ -10,6 +10,7 @@ public class SceneChanger : MonoBehaviour {
 
     private void Update()
     {
+        Debug.Log(sceneIndex);
             
         if (Input.GetKeyDown(KeyCode.Y))
         {
@@ -41,6 +42,7 @@ public class SceneChanger : MonoBehaviour {
     public void NextLevel()
     {
         DontDestroyOnLoad(this.gameObject);
+        Debug.Log(sceneIndex);
         sceneIndex++;
         Debug.Log(sceneIndex);
         SceneManager.LoadScene(sceneIndex);
@@ -51,4 +53,9 @@ public class SceneChanger : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
         SceneManager.LoadScene("GameOverScreen");
     }
+
+	public void RunCredits(){
+		DontDestroyOnLoad (this.gameObject);
+		SceneManager.LoadScene ("Credits");
+	}
 }
