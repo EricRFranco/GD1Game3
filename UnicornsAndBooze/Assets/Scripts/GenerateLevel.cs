@@ -99,10 +99,12 @@ public class GenerateLevel : MonoBehaviour {
 					break;
 				case 'P':
 					instance = Instantiate (playerPrefab);
+					placePosition.y -= 0.5f;
 					break;
 				case 'd':
 					instance = Instantiate (playerPrefab);
 					instance.transform.Rotate (0f, 180f, 0f);
+					placePosition.y -= 0.5f;
 					break;
 				
 				}
