@@ -130,16 +130,11 @@ public class PathfindingScript : MonoBehaviour {
 				case(State.RETURNINGTOPATH):
 					currentIndexOnPath = startingIndexWhenReturningToPath;
 					currentPath = originalPath;
-                    anim.SetBool("walking", true);
-                    anim.SetBool("carrying", false);
-                    anim.SetBool("dancing", false);
 					currentState = State.ONSETPATH;
 					break;
 				case(State.GOINGTODANCEFLOOR):
-                    anim.SetBool("dancing", true);
-                    anim.SetBool("walking", false);
-                    anim.SetBool("carrying", false);
 					currentState = State.DANCING;
+                    anim.SetBool("dancing", true);
 					break;
 				case(State.GOINGTOSHIRT):
 					break;
