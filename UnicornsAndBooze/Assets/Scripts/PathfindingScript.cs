@@ -167,6 +167,7 @@ public class PathfindingScript : MonoBehaviour {
 	}
 
 
+	//AI Steering functions
 	Vector3 DynamicSeek(Vector3 position, Vector3 target){
 		Vector3 linearAcceleration = target - position;
 		return maxAcceleration * linearAcceleration;
@@ -193,6 +194,8 @@ public class PathfindingScript : MonoBehaviour {
 		return linearAcceleration;
 	}
 
+
+	//Show vision of enemy. Generates raycasts that can hit obstacles, the player, and shirts.
 	void UpdateVisionCone(){
 		
 		float currentAngle = transform.eulerAngles.y;
@@ -215,7 +218,7 @@ public class PathfindingScript : MonoBehaviour {
 			if (hit && raycastHitData.collider.tag == "Player") {
 				
 				sceneChanger.GameOver ();
-				//print ("hit");
+
 			} else if (hit && raycastHitData.collider.tag == "Shirt" && currentState != State.GOINGTOSHIRT && currentState != State.DELIVERINGSHIRT && currentState != State.PICKINGUPSHIRT
 				&& currentState != State.PLACINGSHIRT) {
 				currentState = State.GOINGTOSHIRT;
@@ -223,7 +226,6 @@ public class PathfindingScript : MonoBehaviour {
 				Vector3 target = raycastHitData.collider.transform.position;
 				currentPath = levelManager.PathFind (transform.position, new Vector3 (target.x, transform.position.y, target.z));
 
-				//targetShirt = raycastHitData.collider.gameObject;
 			}
 			vertices [i + 1] = rayCastStart + (hit ? raycastHitData.distance : rayCastRange) * dir;
 			uvs [i + 1] = Vector2.zero;
@@ -244,7 +246,7 @@ public class PathfindingScript : MonoBehaviour {
 
 	}
 
-
+	//Used to avoid other pudgies
 	Vector3 AvoidCollisions(){
 		Vector3 seperation = Vector3.zero;
 		int numClose = 0;
@@ -265,7 +267,7 @@ public class PathfindingScript : MonoBehaviour {
 		return seperation;
 	}
 
-
+	//Used set the path for the agent at the beginning
     public void setOriginalPath(List<Tile> tilePath) {
         List<Vector3> path = new List<Vector3>(tilePath.Count);
         foreach(Tile tile in tilePath) {
@@ -292,10 +294,11 @@ public class PathfindingScript : MonoBehaviour {
 		originalPath = path;
 	}
 
+
 	void OnTriggerEnter(Collider collider){
 		
 		switch (currentState) {
-
+		//Bring shirt to bin
 		case State.GOINGTOSHIRT:
 		case State.ONSETPATH:
 		case State.RETURNINGTOPATH:
@@ -315,6 +318,7 @@ public class PathfindingScript : MonoBehaviour {
 
 			}
 				break;
+			//Drop shirt in bin
 		case State.DELIVERINGSHIRT:
 			if (collider.tag == "ShirtBin") {
                 audio.clip = shirtdown;

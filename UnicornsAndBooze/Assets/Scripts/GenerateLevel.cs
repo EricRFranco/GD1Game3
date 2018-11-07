@@ -53,7 +53,7 @@ public class GenerateLevel : MonoBehaviour {
 		for (int i = 0; i < levelRows.Length - 1; ++i) {
 			levelRows [i] = levelRows [i].Trim ();
 			float xOffset = floorLengthInMeters / (float)(levelRows [i].Length);
-			//print (xOffset);
+
 			levelManager.levelGrid [i] = new Tile[levelRows [i].Length];
 
 			for(int j = 0; j < levelRows[i].Length; ++j) {

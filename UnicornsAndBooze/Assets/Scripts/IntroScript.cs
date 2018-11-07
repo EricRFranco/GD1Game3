@@ -39,7 +39,7 @@ public class IntroScript : MonoBehaviour {
 	}
 
 	public void IncrementTextInFrame(){
-		//print ("text");
+
 		++textInFrameIndex;
 		if (textInFrameIndex == framesText [frameIndex].stringList.Count) {
 			++frameIndex;
