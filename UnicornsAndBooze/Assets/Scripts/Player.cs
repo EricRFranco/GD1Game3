@@ -9,8 +9,8 @@ public class Player : MonoBehaviour {
 
     public AudioSource audio;
     public AudioClip rollingclip;
-    public AudioClip turningclip;
     public AudioClip button;
+    public AudioClip shirtup;
     public bool locked = false;
     public bool rollingloop = false;
     public bool rolling = false;
@@ -134,6 +134,9 @@ public class Player : MonoBehaviour {
     {
         if(shirtAvailable && Input.GetKeyDown(KeyCode.E))
         {
+            locked = true;
+            audio.clip = shirtup;
+            audio.Play();
             shirtCount = Math.Min(maxShirtCount, shirtCount + 1);
             shirtText.UpdateText(shirtCount);
         }
