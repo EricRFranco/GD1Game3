@@ -6,6 +6,8 @@ public class GenerateLevel : MonoBehaviour {
 	public TextAsset level;
 	public GameObject wallPrefab;
 
+	public GameObject tablePrefab;
+
 	public GameObject floorPrefab;
 
 	public GameObject shirtBinPrefab;
@@ -26,11 +28,12 @@ public class GenerateLevel : MonoBehaviour {
 		
 		levelManager = GetComponent<LevelManagerScript> ();
 		levelRows = level.text.Split(new char[]{'\n'});
-		Bounds wallBounds = wallPrefab.GetComponent<MeshFilter> ().sharedMesh.bounds;
-		float wallLengthInMeters = wallBounds.extents.x * 2f * wallPrefab.transform.localScale.x;
+		Bounds wallBounds = wallPrefab.transform.GetChild(0).GetComponent<MeshFilter> ().sharedMesh.bounds;
 
+		Bounds tableBounds = tablePrefab.transform.GetChild(0).GetComponent<MeshFilter> ().sharedMesh.bounds;
+		float wallLengthInMeters = tableBounds.extents.x * 2f * tablePrefab.transform.localScale.x;
 		float wallHalfHeightInMeters = wallBounds.extents.y * wallPrefab.transform.localScale.y;
-		float wallWidthInMeters = wallBounds.extents.z * 2f * wallPrefab.transform.localScale.z;
+		float wallWidthInMeters = tableBounds.extents.z * 2f * tablePrefab.transform.localScale.z;
 		Bounds floorBounds = floorPrefab.GetComponent<MeshFilter> ().sharedMesh.bounds;
 		float floorLengthInMeters = wallLengthInMeters * levelRows[0].Trim().Length;
 		float floorWidthInMeters = wallWidthInMeters * (levelRows.Length - 1);
@@ -66,6 +69,15 @@ public class GenerateLevel : MonoBehaviour {
 				switch (levelRows [i] [j]) {
 				case 'W':
 					instance = Instantiate (wallPrefab);
+					tile.isWall = true;
+					break;
+				case 'E':
+					instance = Instantiate (wallPrefab);
+					instance.transform.Rotate (0, 90f, 0f);
+					tile.isWall = true;
+					break;
+				case 'T':
+					instance = Instantiate (tablePrefab);
 					tile.isWall = true;
 					break;
 				case 'S':
