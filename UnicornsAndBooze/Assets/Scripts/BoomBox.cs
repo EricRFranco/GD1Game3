@@ -26,10 +26,7 @@ public class BoomBox : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.F)) {
-			ToggleBoombox ();
-
-		}
+		
 	}
 
     public void ToggleBoombox()
