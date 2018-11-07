@@ -66,6 +66,7 @@ public class PathfindingScript : MonoBehaviour {
 		
         anim = this.gameObject.GetComponent<Animator>();
 		anim.Play ("Walking");
+        anim.SetBool("walking", true);
 	}
 
 
@@ -85,6 +86,7 @@ public class PathfindingScript : MonoBehaviour {
 
 		if (currentState != State.DANCING) {
 			if (boombox.GetComponent<BoomBox> ().IsPlaying && currentState != State.GOINGTODANCEFLOOR && currentState != State.DANCING) {
+                anim.SetBool("walking", true);
 				currentState = State.GOINGTODANCEFLOOR;
 				Vector3 targetPoint = boombox.transform.parent.position;
 				targetPoint.y = transform.position.y;
@@ -120,9 +122,15 @@ public class PathfindingScript : MonoBehaviour {
 				case(State.RETURNINGTOPATH):
 					currentIndexOnPath = startingIndexWhenReturningToPath;
 					currentPath = originalPath;
+                    anim.SetBool("walking", true);
+                    anim.SetBool("carrying", false);
+                    anim.SetBool("dancing", false);
 					currentState = State.ONSETPATH;
 					break;
 				case(State.GOINGTODANCEFLOOR):
+                    anim.SetBool("dancing", true);
+                    anim.SetBool("walking", false);
+                    anim.SetBool("carrying", false);
 					currentState = State.DANCING;
 					break;
 				default:
@@ -269,19 +277,22 @@ public class PathfindingScript : MonoBehaviour {
 			if (collider.tag == "Shirt") {
 				Destroy (collider.transform.parent.gameObject);
 				currentState = State.DELIVERINGSHIRT;
+                anim.SetBool("dropping", true);
 				GameObject shirtBinTarget = FindClosestShirtBin();
 				currentPath = levelManager.PathFind (transform.position, new Vector3(shirtBinTarget.transform.position.x, transform.position.y, shirtBinTarget.transform.position.z));
 				currentIndexOnPath = 0;
-				anim.Play ("CarryShirt");
+                anim.SetBool("dropping", false);
 			}
 				break;
 		case State.DELIVERINGSHIRT:
 			if (collider.tag == "ShirtBin") {
 				currentState = State.RETURNINGTOPATH;
-				Vector3 returnPoint = FindClosestPointOnOriginalPath ();
+                    anim.SetBool("carrying",false);
+                    anim.SetBool("walking", true);
+                    anim.SetBool("dancing", false);
+                    Vector3 returnPoint = FindClosestPointOnOriginalPath ();
 				currentPath = levelManager.PathFind (transform.position, returnPoint);
 				currentIndexOnPath = 0;
-				anim.Play ("Walking");
 			}
 			break;
 		default:
