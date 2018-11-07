@@ -11,6 +11,7 @@ public enum State{
 	DANCING,
 	PICKINGUPSHIRT,
 	PLACINGSHIRT,
+	GOINGTOSHIRT,
 }
 
 public class PathfindingScript : MonoBehaviour {
@@ -48,6 +49,7 @@ public class PathfindingScript : MonoBehaviour {
 
 
 	GameObject boombox;
+	GameObject targetShirt;
 
 	GameObject[] otherPudgys;
     Animator anim;
@@ -131,6 +133,8 @@ public class PathfindingScript : MonoBehaviour {
 				case(State.GOINGTODANCEFLOOR):
 					currentState = State.DANCING;
 					break;
+				case(State.GOINGTOSHIRT):
+					break;
 				default:
 					rbody.velocity = Vector2.zero;
 					break;
@@ -198,6 +202,13 @@ public class PathfindingScript : MonoBehaviour {
 			if (hit && raycastHitData.collider.tag == "Player") {
 				
 				sceneChanger.GameOver ();
+				//print ("hit");
+			} else if (hit && raycastHitData.collider.tag == "Shirt" && currentState != State.GOINGTOSHIRT) {
+				currentState = State.GOINGTOSHIRT;
+				currentIndexOnPath = 0;
+				Vector3 target = raycastHitData.collider.transform.position;
+				currentPath = levelManager.PathFind (transform.position, new Vector3 (target.x, transform.position.y, target.z));
+				//targetShirt = raycastHitData.collider.gameObject;
 			}
 			vertices [i + 1] = rayCastStart + (hit ? raycastHitData.distance : rayCastRange) * dir;
 			uvs [i + 1] = Vector2.zero;
@@ -270,6 +281,7 @@ public class PathfindingScript : MonoBehaviour {
 		
 		switch (currentState) {
 
+		case State.GOINGTOSHIRT:
 		case State.ONSETPATH:
 		case State.RETURNINGTOPATH:
 			if (collider.tag == "Shirt") {
