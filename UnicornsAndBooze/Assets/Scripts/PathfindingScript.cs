@@ -56,6 +56,10 @@ public class PathfindingScript : MonoBehaviour {
 
 	float animationStartTime;
 
+    public AudioSource audio;
+    public AudioClip shirtup;
+    public AudioClip shirtdown;
+
 	// Use this for initialization
 	void Awake () {
 		sceneChanger = GameObject.Find("SceneManager").GetComponent<SceneChanger>();
@@ -68,6 +72,8 @@ public class PathfindingScript : MonoBehaviour {
 		
         anim = this.gameObject.GetComponent<Animator>();
 		anim.Play ("Walking");
+
+        audio = GetComponent<AudioSource>();
 	}
 
 
@@ -279,6 +285,8 @@ public class PathfindingScript : MonoBehaviour {
 		case State.ONSETPATH:
 		case State.RETURNINGTOPATH:
 			if (collider.tag == "Shirt") {
+                audio.clip = shirtup;
+                audio.Play();
 				Destroy (collider.transform.parent.gameObject);
 				currentState = State.DELIVERINGSHIRT;
 				GameObject shirtBinTarget = FindClosestShirtBin();
@@ -289,6 +297,8 @@ public class PathfindingScript : MonoBehaviour {
 				break;
 		case State.DELIVERINGSHIRT:
 			if (collider.tag == "ShirtBin") {
+                audio.clip = shirtdown;
+                audio.Play();
 				currentState = State.RETURNINGTOPATH;
 				Vector3 returnPoint = FindClosestPointOnOriginalPath ();
 				currentPath = levelManager.PathFind (transform.position, returnPoint);

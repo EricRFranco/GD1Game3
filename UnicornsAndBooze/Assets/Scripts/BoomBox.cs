@@ -7,6 +7,7 @@ public class BoomBox : MonoBehaviour {
     private bool isPlaying = false;
     [SerializeField]
     private AudioSource chillTrack;
+    public AudioClip button;
 
     public bool IsPlaying
     {

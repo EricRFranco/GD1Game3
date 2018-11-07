@@ -7,6 +7,14 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
+    public AudioSource audio;
+    public AudioClip rollingclip;
+    public AudioClip button;
+    public AudioClip shirtup;
+    public bool locked = false;
+    public bool rollingloop = false;
+    public bool rolling = false;
+
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -42,7 +50,8 @@ public class Player : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
 		shirtText = GameObject.FindGameObjectWithTag ("ShirtCount").GetComponent<ShirtTextUI> ();
-	}
+        audio = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -58,10 +67,42 @@ public class Player : MonoBehaviour {
         }
         anim.SetFloat("velocity", rb.velocity.z);
         anim.SetInteger("shirts", shirtCount);
+
+        if (locked == false)
+        {
+            if (rollingloop == false)
+            {
+                audio.Stop();
+                rolling = true;
+            }
+            if (rollingloop == true)
+            {
+                if (rolling == true && audio.isPlaying == false)
+                {
+                    audio.clip = rollingclip;
+                    audio.Play();
+                    rolling = false;
+                }
+            }
+        }
+        if(audio.isPlaying == false)
+        {
+            locked = false;
+        }
     }
 
     void MovePlayer()
     {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        {
+            rollingloop = true;
+        }
+        else
+        {
+            rollingloop = false;
+        } 
+
+
         if (Input.GetKey(KeyCode.W))
         {
             rb.velocity = transform.forward * speed;
@@ -93,6 +134,9 @@ public class Player : MonoBehaviour {
     {
         if(shirtAvailable && Input.GetKeyDown(KeyCode.E))
         {
+            locked = true;
+            audio.clip = shirtup;
+            audio.Play();
             shirtCount = Math.Min(maxShirtCount, shirtCount + 1);
             shirtText.UpdateText(shirtCount);
         }
@@ -102,6 +146,11 @@ public class Player : MonoBehaviour {
     {
         if(boomBox != null && Input.GetKeyDown(KeyCode.E))
         {
+            print("PRESSED");
+            audio.clip = button;
+            audio.loop = false;
+            audio.Play();
+            locked = true;
             boomBox.ToggleBoombox();
             anim.SetTrigger("interact");
             canExit = !canExit;
