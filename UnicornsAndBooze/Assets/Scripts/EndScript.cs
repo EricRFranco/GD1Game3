@@ -40,7 +40,7 @@ public class EndScript : MonoBehaviour {
 			textInFrameIndex = 0;
 			if (frameIndex == framesText.Count) {
 
-				sceneChanger.StartGame ();
+				sceneChanger.RunCredits ();
 				return;
 			} else {
 				Destroy (currentBackground);

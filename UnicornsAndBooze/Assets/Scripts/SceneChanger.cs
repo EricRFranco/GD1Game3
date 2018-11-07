@@ -53,4 +53,9 @@ public class SceneChanger : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
         SceneManager.LoadScene("GameOverScreen");
     }
+
+	public void RunCredits(){
+		DontDestroyOnLoad (this.gameObject);
+		SceneManager.LoadScene ("Credits");
+	}
 }
