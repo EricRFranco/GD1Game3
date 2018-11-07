@@ -73,6 +73,7 @@ public class PathfindingScript : MonoBehaviour {
         anim = this.gameObject.GetComponent<Animator>();
 		anim.Play ("Walking");
 		anim.SetBool("walking", true);
+        anim.SetBool("walking", false);
 		audio = GetComponent<AudioSource>();
 	}
 
@@ -296,22 +297,21 @@ public class PathfindingScript : MonoBehaviour {
                 audio.Play();
 				Destroy (collider.transform.parent.gameObject);
 				currentState = State.DELIVERINGSHIRT;
-                anim.SetBool("dropping", true);
+                anim.SetBool("dropping", false);
+                anim.SetBool("carrying", true);
 				GameObject shirtBinTarget = FindClosestShirtBin();
 				currentPath = levelManager.PathFind (transform.position, new Vector3(shirtBinTarget.transform.position.x, transform.position.y, shirtBinTarget.transform.position.z));
 				currentIndexOnPath = 0;
-                anim.SetBool("dropping", false);
 			}
 				break;
 		case State.DELIVERINGSHIRT:
 			if (collider.tag == "ShirtBin") {
                 audio.clip = shirtdown;
                 audio.Play();
+                anim.SetBool("dropping", true);
+                anim.SetBool("carrying", false);
 				currentState = State.RETURNINGTOPATH;
-                    anim.SetBool("carrying",false);
-                    anim.SetBool("walking", true);
-                    anim.SetBool("dancing", false);
-                    Vector3 returnPoint = FindClosestPointOnOriginalPath ();
+                Vector3 returnPoint = FindClosestPointOnOriginalPath ();
 				currentPath = levelManager.PathFind (transform.position, returnPoint);
 				currentIndexOnPath = 0;
 			}
