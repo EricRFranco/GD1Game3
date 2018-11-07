@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         sceneChanger = GameObject.Find("SceneManager").GetComponent<SceneChanger>();
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
@@ -56,6 +56,7 @@ public class Player : MonoBehaviour {
             shirtCount--;
             shirtText.UpdateText(shirtCount);
         }
+        print(anim);
         anim.SetFloat("velocity", rb.velocity.z);
         anim.SetInteger("shirts", shirtCount);
     }
