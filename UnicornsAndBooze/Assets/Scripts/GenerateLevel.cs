@@ -88,10 +88,11 @@ public class GenerateLevel : MonoBehaviour {
 					break;
 				case 'U':
 					instance = Instantiate (doorPrefab);
-					instance.transform.Rotate (0, 90f, 0f);
+					instance.transform.Rotate (0, 180f, 0f);
 					break;
 				case 'D':
 					instance = Instantiate (doorPrefab);
+					instance.transform.Rotate (0, 270f, 0f);
 					break;
 				case 'P':
 					instance = Instantiate (playerPrefab);
