@@ -147,7 +147,7 @@ public class Player : MonoBehaviour {
 
     void ToggleBoombox()
     {
-        if(boomBox != null && Input.GetKeyDown(KeyCode.E))
+        if(boomBox != null && Input.GetKeyDown(KeyCode.E) && !canExit)
         {
            
             audio.clip = button;
