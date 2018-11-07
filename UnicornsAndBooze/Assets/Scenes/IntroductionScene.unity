@@ -493,9 +493,9 @@ MonoBehaviour:
   - stringList:
     - (Click here when you are ready to start the game)
   frameImages:
-  - {fileID: 100000, guid: 84fd6cdca15e75c4ca02f2c149613dee, type: 3}
-  - {fileID: 100010, guid: 297c9162c6dbd1842b45c8775550dabc, type: 3}
-  - {fileID: 1061510163154800, guid: 4c45c63fa75a98344a57b6fcd417a30a, type: 2}
+  - {fileID: 1935412646029238, guid: bfaaafc1ed231ba448952107f5f5db77, type: 2}
+  - {fileID: 1576983254367988, guid: 3643512c24255e6419ef3f11e27003cc, type: 2}
+  - {fileID: 1399523187629818, guid: d02ecfbdcf552fe4c9fa9376d3dde3b9, type: 2}
   - {fileID: 1817317719331098, guid: 976acff5030895f429d3677579635de6, type: 2}
 --- !u!1 &1645142413
 GameObject:

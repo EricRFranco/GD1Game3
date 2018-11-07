@@ -406,7 +406,8 @@ MonoBehaviour:
       produce your first studio album with us?"
     - 'Botty:  [T H A T   W O U LD   B E   W O N D E R F U L]'
     - 'Botty:  [I   W I L L   D O   M Y   B E S T   < 3]'
-  frameImages: []
+  frameImages:
+  - {fileID: 1075909239386076, guid: 1ed01c6359146d2469b3d40390fd9f9b, type: 2}
 --- !u!114 &1112674237
 MonoBehaviour:
   m_ObjectHideFlags: 0
