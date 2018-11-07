@@ -146,7 +146,7 @@ public class Player : MonoBehaviour {
     {
         if(boomBox != null && Input.GetKeyDown(KeyCode.E))
         {
-            print("PRESSED");
+           
             audio.clip = button;
             audio.loop = false;
             audio.Play();
@@ -165,6 +165,7 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+		
         if (other.gameObject.tag == "ShirtBin") 
             shirtAvailable = true;
 
@@ -175,6 +176,7 @@ public class Player : MonoBehaviour {
          
         if(other.gameObject.tag == "Door" && canExit)
         {
+			
             sceneChanger.NextLevel();
         }
     }
