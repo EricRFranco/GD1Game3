@@ -491,6 +491,7 @@ GameObject:
   - component: {fileID: 114778517699579330}
   - component: {fileID: 54968168010935084}
   - component: {fileID: 65215158021982050}
+  - component: {fileID: 82531680531848950}
   m_Layer: 0
   m_Name: Pudgy Man Prefab
   m_TagString: Untagged
@@ -1740,6 +1741,101 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.498528, y: 0.8679581, z: 0.19097328}
   m_Center: {x: 0.014199972, y: 0.4335617, z: 0.004612446}
+--- !u!82 &82531680531848950
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1623487298145206}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95778268169044566
 Animator:
   serializedVersion: 3
@@ -1782,6 +1878,9 @@ MonoBehaviour:
   rayCastRange: 2
   rayCastTotalAngle: 90
   amountOfRayCasts: 200
+  audio: {fileID: 0}
+  shirtup: {fileID: 8300000, guid: 99b29f80e57a71549b0c2a5004b677bf, type: 3}
+  shirtdown: {fileID: 8300000, guid: 9656f68c302f0d04aa1a74c34d17d944, type: 3}
 --- !u!137 &137050423525161878
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

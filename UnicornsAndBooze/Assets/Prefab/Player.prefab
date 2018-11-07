@@ -5714,7 +5714,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5827,8 +5827,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 0}
   rollingclip: {fileID: 8300000, guid: 515c77578c5c51443ab200eea9f16ad9, type: 3}
-  turningclip: {fileID: 8300000, guid: 244dc6b4badfd5d4e9bbf2005eab7009, type: 3}
   button: {fileID: 8300000, guid: de3d6ea93d31d84439531886cae636e9, type: 3}
+  shirtup: {fileID: 8300000, guid: 99b29f80e57a71549b0c2a5004b677bf, type: 3}
   locked: 0
   rollingloop: 0
   rolling: 0
