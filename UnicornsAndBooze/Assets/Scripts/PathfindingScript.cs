@@ -59,13 +59,14 @@ public class PathfindingScript : MonoBehaviour {
 		visionCone.transform.position = Vector3.zero;
 		visionCone.GetComponent<MeshRenderer> ().material = visionMaterial;
 		currentState = State.ONSETPATH;
-		boombox = GameObject.FindGameObjectWithTag ("Boombox");
+		
         anim = this.gameObject.GetComponent<Animator>();
 	}
 
 
 	void Start() {
-		otherPudgys = GameObject.FindGameObjectsWithTag ("Enemy");
+        boombox = GameObject.FindGameObjectWithTag("Boombox");
+        otherPudgys = GameObject.FindGameObjectsWithTag ("Enemy");
 	}
 	
 	// Update is called once per frame
@@ -73,6 +74,7 @@ public class PathfindingScript : MonoBehaviour {
 		if (currentPath == null) {
 			currentIndexOnPath = 0;
 			currentPath = originalPath;
+            print(originalPath);
 		}
 
 		if (currentState != State.DANCING) {
@@ -84,7 +86,7 @@ public class PathfindingScript : MonoBehaviour {
 				currentIndexOnPath = 0;
 				Destroy (visionCone);
 			}
-
+            
 			if ((Vector3.Distance (transform.position, currentPath [currentPath.Count - 1]) > closeEnoughToPointDistance && currentState != State.GOINGTODANCEFLOOR)
 				|| (Vector3.Distance (transform.position, currentPath [currentPath.Count - 1]) > closeEnoughToBoomBoxDistance && currentState == State.GOINGTODANCEFLOOR)) {
 				if (Vector3.Distance (transform.position, currentPath [currentIndexOnPath]) <= closeEnoughToPointDistance) {
@@ -233,17 +235,19 @@ public class PathfindingScript : MonoBehaviour {
 
 
 	public void setOriginalPath(Path path) {
-		List<Vector3> newPath = new List<Vector3>(path.pathNodes.Count);
+        print(levelManager);
+        List<Vector3> newPath = new List<Vector3>(path.pathNodes.Count);
 		foreach(PathNode node in path.pathNodes) {
 			
 			newPath.Add (levelManager.levelGrid[node.tileY][node.tileX].position);
-
+           
 
 		}
 		originalPath = newPath;
 	}
 
 	public void setOriginalPath(List<Vector3> path){
+        
 		originalPath = path;
 	}
 
