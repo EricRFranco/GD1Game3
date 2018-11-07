@@ -10,7 +10,7 @@ public class SceneChanger : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log(sceneIndex);
+      
             
         if (Input.GetKeyDown(KeyCode.Y))
         {
