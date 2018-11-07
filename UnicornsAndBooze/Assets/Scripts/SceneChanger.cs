@@ -27,6 +27,11 @@ public class SceneChanger : MonoBehaviour {
         SceneManager.LoadScene("LevelOne");
     }
 
+	public void RunIntro(){
+		DontDestroyOnLoad (this.gameObject);
+		SceneManager.LoadScene ("IntroductionScene");
+	}
+
     public void RestartGame()
     {
         DontDestroyOnLoad(this.gameObject);
