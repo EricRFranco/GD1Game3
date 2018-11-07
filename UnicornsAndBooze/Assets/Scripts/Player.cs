@@ -65,7 +65,6 @@ public class Player : MonoBehaviour {
             shirtCount--;
             shirtText.UpdateText(shirtCount);
         }
-        print(anim);
         anim.SetFloat("velocity", rb.velocity.z);
         anim.SetInteger("shirts", shirtCount);
 

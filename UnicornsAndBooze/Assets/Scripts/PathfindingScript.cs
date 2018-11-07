@@ -8,7 +8,9 @@ public enum State{
 	DELIVERINGSHIRT,
 	RETURNINGTOPATH,
 	GOINGTODANCEFLOOR,
-	DANCING
+	DANCING,
+	PICKINGUPSHIRT,
+	PLACINGSHIRT,
 }
 
 public class PathfindingScript : MonoBehaviour {
@@ -50,6 +52,8 @@ public class PathfindingScript : MonoBehaviour {
 	GameObject[] otherPudgys;
     Animator anim;
 
+	float animationStartTime;
+
 	// Use this for initialization
 	void Awake () {
 		sceneChanger = GameObject.Find("SceneManager").GetComponent<SceneChanger>();
@@ -59,13 +63,16 @@ public class PathfindingScript : MonoBehaviour {
 		visionCone.transform.position = Vector3.zero;
 		visionCone.GetComponent<MeshRenderer> ().material = visionMaterial;
 		currentState = State.ONSETPATH;
-		boombox = GameObject.FindGameObjectWithTag ("Boombox");
+		
         anim = this.gameObject.GetComponent<Animator>();
+		anim.Play ("Walking");
 	}
 
 
 	void Start() {
-		otherPudgys = GameObject.FindGameObjectsWithTag ("Enemy");
+        boombox = GameObject.FindGameObjectWithTag("Boombox");
+        otherPudgys = GameObject.FindGameObjectsWithTag ("Enemy");
+
 	}
 	
 	// Update is called once per frame
@@ -73,6 +80,7 @@ public class PathfindingScript : MonoBehaviour {
 		if (currentPath == null) {
 			currentIndexOnPath = 0;
 			currentPath = originalPath;
+          
 		}
 
 		if (currentState != State.DANCING) {
@@ -84,7 +92,7 @@ public class PathfindingScript : MonoBehaviour {
 				currentIndexOnPath = 0;
 				Destroy (visionCone);
 			}
-
+            
 			if ((Vector3.Distance (transform.position, currentPath [currentPath.Count - 1]) > closeEnoughToPointDistance && currentState != State.GOINGTODANCEFLOOR)
 				|| (Vector3.Distance (transform.position, currentPath [currentPath.Count - 1]) > closeEnoughToBoomBoxDistance && currentState == State.GOINGTODANCEFLOOR)) {
 				if (Vector3.Distance (transform.position, currentPath [currentIndexOnPath]) <= closeEnoughToPointDistance) {
@@ -103,7 +111,7 @@ public class PathfindingScript : MonoBehaviour {
 				transform.eulerAngles = new Vector3 (0, Mathf.Rad2Deg * angle, 0);
 
 			} else {
-			
+				
 				switch (currentState) {
 				case(State.ONSETPATH):
 					currentPath.Reverse ();
@@ -126,9 +134,12 @@ public class PathfindingScript : MonoBehaviour {
 				
 				UpdateVisionCone ();
 			}
+			anim.speed = rbody.velocity.magnitude / maxVelocity;
 		} else {
 			rbody.velocity = Vector2.zero;
 		}
+
+
         
 	}
 
@@ -233,17 +244,19 @@ public class PathfindingScript : MonoBehaviour {
 
 
 	public void setOriginalPath(Path path) {
-		List<Vector3> newPath = new List<Vector3>(path.pathNodes.Count);
+		
+        List<Vector3> newPath = new List<Vector3>(path.pathNodes.Count);
 		foreach(PathNode node in path.pathNodes) {
 			
 			newPath.Add (levelManager.levelGrid[node.tileY][node.tileX].position);
-
+           
 
 		}
 		originalPath = newPath;
 	}
 
 	public void setOriginalPath(List<Vector3> path){
+        
 		originalPath = path;
 	}
 
@@ -259,6 +272,7 @@ public class PathfindingScript : MonoBehaviour {
 				GameObject shirtBinTarget = FindClosestShirtBin();
 				currentPath = levelManager.PathFind (transform.position, new Vector3(shirtBinTarget.transform.position.x, transform.position.y, shirtBinTarget.transform.position.z));
 				currentIndexOnPath = 0;
+				anim.Play ("CarryShirt");
 			}
 				break;
 		case State.DELIVERINGSHIRT:
@@ -267,6 +281,7 @@ public class PathfindingScript : MonoBehaviour {
 				Vector3 returnPoint = FindClosestPointOnOriginalPath ();
 				currentPath = levelManager.PathFind (transform.position, returnPoint);
 				currentIndexOnPath = 0;
+				anim.Play ("Walking");
 			}
 			break;
 		default:
