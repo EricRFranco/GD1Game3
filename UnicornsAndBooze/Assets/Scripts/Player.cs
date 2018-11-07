@@ -41,6 +41,7 @@ public class Player : MonoBehaviour {
         sceneChanger = GameObject.Find("SceneManager").GetComponent<SceneChanger>();
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+		shirtText = GameObject.FindGameObjectWithTag ("ShirtCount").GetComponent<ShirtTextUI> ();
 	}
 	
 	// Update is called once per frame

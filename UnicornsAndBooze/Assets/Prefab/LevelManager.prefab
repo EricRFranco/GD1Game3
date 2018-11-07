@@ -55,35 +55,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paths:
   - pathNodes:
-    - tileX: 1
-      tileY: 1
     - tileX: 2
       tileY: 1
-    - tileX: 3
-      tileY: 1
-    - tileX: 4
-      tileY: 1
-    - tileX: 5
-      tileY: 1
-    - tileX: 6
-      tileY: 1
-    - tileX: 7
-      tileY: 1
-    - tileX: 8
-      tileY: 1
+    - tileX: 2
+      tileY: 7
   - pathNodes:
     - tileX: 6
-      tileY: 4
-    - tileX: 7
-      tileY: 4
-    - tileX: 8
-      tileY: 4
-    - tileX: 8
-      tileY: 5
-    - tileX: 7
-      tileY: 5
+      tileY: 7
     - tileX: 6
-      tileY: 5
+      tileY: 6
+    - tileX: 7
+      tileY: 6
   pathfindingNPCPrefab: {fileID: 1436055677808956, guid: 0046756b3aafd1d40b41838fc974109a,
     type: 2}
 --- !u!114 &114650530790804698
@@ -108,12 +90,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7add2a1bd0a8641af8cf6d0becfb34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 4900000, guid: 7e9b3274a48d8b548bda82c956550460, type: 3}
+  level: {fileID: 4900000, guid: 595d4d8ed1607be4884a53cb38710774, type: 3}
   wallPrefab: {fileID: 1850943565351612, guid: 4926bba82e1700c4ca417ae99bdb94dd, type: 2}
   floorPrefab: {fileID: 1735847954989570, guid: 4cf7f1ec17bbe104bb4e2fa964a5f6a0,
     type: 2}
-  shirtBinPrefab: {fileID: 1061510163154800, guid: 4c45c63fa75a98344a57b6fcd417a30a,
+  shirtBinPrefab: {fileID: 1370865061057628, guid: 7eea516e8b93ce44e885c9354ee5b1e8,
     type: 2}
   boomboxPrefab: {fileID: 1717455763223648, guid: 8c0fda40c12488143bd88482ac37b667,
+    type: 2}
+  doorPrefab: {fileID: 1578340598215390, guid: af657d9bf19f947439487c6b9ed963ec, type: 2}
+  playerPrefab: {fileID: 1301083989481510, guid: e2435b32742065842ac5f50fb4d0a594,
     type: 2}
   levelCenter: {x: 0, y: 0, z: 0}
