@@ -12,6 +12,7 @@ TagManager:
   - Shirt
   - Door
   - ChillPlayer
+  - ShirtCount
   layers:
   - Default
   - TransparentFX
