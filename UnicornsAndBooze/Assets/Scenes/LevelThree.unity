@@ -632,6 +632,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1623487298145206, guid: 731943a8be7710245ba296d33057dc63,
         type: 2}
+    - target: {fileID: 114635484017318672, guid: 3318a5970b8511b4c87f2bde05165aff,
+        type: 2}
+      propertyPath: paths.Array.data[1].pathNodes.Array.data[0].tileY
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3318a5970b8511b4c87f2bde05165aff, type: 2}
   m_IsPrefabAsset: 0
