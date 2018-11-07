@@ -3774,7 +3774,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1301083989481510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2814612, y: -1.2518325, z: -5.821644}
+  m_LocalPosition: {x: -0.14426167, y: 0.001, z: -4.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4864085886236204}
@@ -5833,7 +5833,7 @@ MonoBehaviour:
   rollingloop: 0
   rolling: 0
   speed: 3
-  shirt: {fileID: 1676793457813996, guid: 432e6a1c804ada54abbdd7a7ee6b8302, type: 2}
+  shirt: {fileID: 1579776815615650, guid: b4759849c4828d14bac83a95c864fc03, type: 2}
   spawnPoint: {fileID: 4725057272532762}
   angularSpeed: 1.5
   shirtText: {fileID: 0}
