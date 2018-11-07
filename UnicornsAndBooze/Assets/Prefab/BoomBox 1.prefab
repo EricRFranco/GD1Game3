@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4057575075859382}
+  - component: {fileID: 65124761433240576}
   m_Layer: 0
   m_Name: BoomBox 1
   m_TagString: Untagged
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1059404136330890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3206627, y: -2.1440911, z: 0.40311718}
+  m_LocalPosition: {x: -10.787131, y: 2.4756532, z: -8.517004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4136644704203540}
@@ -118,6 +119,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1687700262261114}
   m_Mesh: {fileID: 4300000, guid: 77614cd2e3929544491745c3fd655b51, type: 3}
+--- !u!65 &65124761433240576
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1059404136330890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4167242, y: 0.5046935, z: 1}
+  m_Center: {x: 0.0017857552, y: -0.49534678, z: 0}
 --- !u!65 &65392221074296392
 BoxCollider:
   m_ObjectHideFlags: 1
