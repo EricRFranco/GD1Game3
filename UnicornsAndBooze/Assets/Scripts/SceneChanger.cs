@@ -42,9 +42,7 @@ public class SceneChanger : MonoBehaviour {
     public void NextLevel()
     {
         DontDestroyOnLoad(this.gameObject);
-        Debug.Log(sceneIndex);
         sceneIndex++;
-        Debug.Log(sceneIndex);
         SceneManager.LoadScene(sceneIndex);
     }
 
