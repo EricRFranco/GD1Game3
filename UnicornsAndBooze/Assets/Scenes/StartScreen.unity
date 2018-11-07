@@ -175,13 +175,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 7
     m_MaxSize: 72
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: INSERT TITLE HERE
+  m_Text: R0(B)OT (b)EAT
 --- !u!222 &102754650
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -660,11 +660,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 04d499e705635194f9e6e236367ac760, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 66b6578035bd18843868058de092f87b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
