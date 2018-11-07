@@ -73,6 +73,7 @@ public class Player : MonoBehaviour {
             if (rollingloop == false)
             {
                 audio.Stop();
+                audio.loop = false;
                 rolling = true;
             }
             if (rollingloop == true)
@@ -80,12 +81,13 @@ public class Player : MonoBehaviour {
                 if (rolling == true && audio.isPlaying == false)
                 {
                     audio.clip = rollingclip;
+                    audio.loop = true;
                     audio.Play();
                     rolling = false;
                 }
             }
         }
-        if(audio.isPlaying == false)
+        if(audio.isPlaying == false && Input.GetKey(KeyCode.W) == false && Input.GetKey(KeyCode.S))
         {
             locked = false;
         }
@@ -136,6 +138,7 @@ public class Player : MonoBehaviour {
         {
             locked = true;
             audio.clip = shirtup;
+            audio.loop = false;
             audio.Play();
             shirtCount = Math.Min(maxShirtCount, shirtCount + 1);
             shirtText.UpdateText(shirtCount);
