@@ -53,8 +53,9 @@ public class SceneChanger : MonoBehaviour {
     }
 
 	public void ReturnToStart(){
-		
-		SceneManager.LoadScene ("StartScreen");
+        sceneIndex = 2;
+        SceneManager.LoadScene ("StartScreen");
+        Destroy(this.gameObject);
 	}
 
 	public void RunCredits(){
