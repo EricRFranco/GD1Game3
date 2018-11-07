@@ -60,7 +60,7 @@ public class GenerateLevel : MonoBehaviour {
 
 				Tile tile = new Tile ();
 				tile.position = placePosition;
-				tile.position.y = 0.5f;
+				tile.position.y = 0;
 				tile.isWall = false;
 				GameObject instance = null;
 				switch (levelRows [i] [j]) {
